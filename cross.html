@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Cross-references | R语言，统计学习与语言比较</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Cross-references | R语言，统计学习与语言比较" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Cross-references | R语言，统计学习与语言比较" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Jianqi" />
+
+
+<meta name="date" content="2022-10-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-基础操作.html"/>
+<link rel="next" href="随机模拟.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 关于</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#r介绍"><i class="fa fa-check"></i><b>1.1</b> R介绍</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#四则运算"><i class="fa fa-check"></i><b>1.2</b> 四则运算</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#乘方运算"><i class="fa fa-check"></i><b>1.2.1</b> 乘方运算</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#数学函数"><i class="fa fa-check"></i><b>1.2.2</b> 数学函数</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#概率分布"><i class="fa fa-check"></i><b>1.2.3</b> 概率分布</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#向量与矩阵"><i class="fa fa-check"></i><b>1.3</b> 向量与矩阵</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#数值型向量"><i class="fa fa-check"></i><b>1.3.1</b> 数值型向量</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#逻辑型向量"><i class="fa fa-check"></i><b>1.3.2</b> 逻辑型向量</a></li>
+<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#字符型向量"><i class="fa fa-check"></i><b>1.3.3</b> 字符型向量</a></li>
+<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#向量下标与子集"><i class="fa fa-check"></i><b>1.3.4</b> 向量下标与子集</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r初等统计分析.html"><a href="r初等统计分析.html"><i class="fa fa-check"></i><b>2</b> R初等统计分析</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r初等统计分析.html"><a href="r初等统计分析.html#概率分布-1"><i class="fa fa-check"></i><b>2.1</b> 概率分布</a></li>
+<li class="chapter" data-level="2.2" data-path="r初等统计分析.html"><a href="r初等统计分析.html#最大似然估计mle"><i class="fa fa-check"></i><b>2.2</b> 最大似然估计(MLE)</a></li>
+<li class="chapter" data-level="2.3" data-path="r初等统计分析.html"><a href="r初等统计分析.html#广义线性回归"><i class="fa fa-check"></i><b>2.3</b> 广义线性回归</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="r初等统计分析.html"><a href="r初等统计分析.html#混合模型"><i class="fa fa-check"></i><b>2.3.1</b> 混合模型</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="r初等统计分析.html"><a href="r初等统计分析.html#逻辑回归对数似然函数"><i class="fa fa-check"></i><b>2.4</b> 逻辑回归对数似然函数</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="r初等统计分析.html"><a href="r初等统计分析.html#逻辑回归"><i class="fa fa-check"></i><b>2.4.1</b> 逻辑回归</a></li>
+<li class="chapter" data-level="2.4.2" data-path="r初等统计分析.html"><a href="r初等统计分析.html#创建回归模型"><i class="fa fa-check"></i><b>2.4.2</b> 创建回归模型</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="r初等统计分析.html"><a href="r初等统计分析.html#逻辑回归的梯度下降"><i class="fa fa-check"></i><b>2.5</b> 逻辑回归的梯度下降</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="r初等统计分析.html"><a href="r初等统计分析.html#小样本"><i class="fa fa-check"></i><b>2.5.1</b> 小样本</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="r初等统计分析.html"><a href="r初等统计分析.html#多重共线性"><i class="fa fa-check"></i><b>2.6</b> 多重共线性</a></li>
+<li class="chapter" data-level="2.7" data-path="r初等统计分析.html"><a href="r初等统计分析.html#强影响点分析"><i class="fa fa-check"></i><b>2.7</b> 强影响点分析</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r数据类型.html"><a href="r数据类型.html"><i class="fa fa-check"></i><b>3</b> R数据类型</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r数据类型.html"><a href="r数据类型.html#类型转换"><i class="fa fa-check"></i><b>3.1</b> 类型转换</a></li>
+<li class="chapter" data-level="3.2" data-path="r数据类型.html"><a href="r数据类型.html#r中元素属性"><i class="fa fa-check"></i><b>3.2</b> R中元素属性</a></li>
+<li class="chapter" data-level="3.3" data-path="r数据类型.html"><a href="r数据类型.html#日期时间"><i class="fa fa-check"></i><b>3.3</b> 日期时间</a></li>
+<li class="chapter" data-level="3.4" data-path="r数据类型.html"><a href="r数据类型.html#因子类型"><i class="fa fa-check"></i><b>3.4</b> 因子类型</a></li>
+<li class="chapter" data-level="3.5" data-path="r数据类型.html"><a href="r数据类型.html#列表类型"><i class="fa fa-check"></i><b>3.5</b> 列表类型</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-基础操作.html"><a href="r-基础操作.html"><i class="fa fa-check"></i><b>4</b> R 基础操作</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="r-基础操作.html"><a href="r-基础操作.html#基本绘图"><i class="fa fa-check"></i><b>4.1</b> 基本绘图</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="r-基础操作.html"><a href="r-基础操作.html#颜色"><i class="fa fa-check"></i><b>4.1.1</b> 颜色</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="r-基础操作.html"><a href="r-基础操作.html#图库"><i class="fa fa-check"></i><b>4.2</b> 图库</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="r-基础操作.html"><a href="r-基础操作.html#直方图histogram"><i class="fa fa-check"></i><b>4.2.1</b> 直方图histogram</a></li>
+<li class="chapter" data-level="4.2.2" data-path="r-基础操作.html"><a href="r-基础操作.html#茎叶图"><i class="fa fa-check"></i><b>4.2.2</b> 茎叶图</a></li>
+<li class="chapter" data-level="4.2.3" data-path="r-基础操作.html"><a href="r-基础操作.html#条形图"><i class="fa fa-check"></i><b>4.2.3</b> 条形图</a></li>
+<li class="chapter" data-level="4.2.4" data-path="r-基础操作.html"><a href="r-基础操作.html#箱线图"><i class="fa fa-check"></i><b>4.2.4</b> 箱线图</a></li>
+<li class="chapter" data-level="4.2.5" data-path="r-基础操作.html"><a href="r-基础操作.html#散点图"><i class="fa fa-check"></i><b>4.2.5</b> 散点图</a></li>
+<li class="chapter" data-level="4.2.6" data-path="r-基础操作.html"><a href="r-基础操作.html#关联图"><i class="fa fa-check"></i><b>4.2.6</b> 关联图</a></li>
+<li class="chapter" data-level="4.2.7" data-path="r-基础操作.html"><a href="r-基础操作.html#条件密度图"><i class="fa fa-check"></i><b>4.2.7</b> 条件密度图</a></li>
+<li class="chapter" data-level="4.2.8" data-path="r-基础操作.html"><a href="r-基础操作.html#条件分割图"><i class="fa fa-check"></i><b>4.2.8</b> 条件分割图</a></li>
+<li class="chapter" data-level="4.2.9" data-path="r-基础操作.html"><a href="r-基础操作.html#坐标轴须"><i class="fa fa-check"></i><b>4.2.9</b> 坐标轴须</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="r-基础操作.html"><a href="r-基础操作.html#矩阵计算"><i class="fa fa-check"></i><b>4.3</b> 矩阵计算</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="r-基础操作.html"><a href="r-基础操作.html#求特征向量"><i class="fa fa-check"></i><b>4.3.1</b> 求特征向量</a></li>
+<li class="chapter" data-level="4.3.2" data-path="r-基础操作.html"><a href="r-基础操作.html#伴随矩阵计算"><i class="fa fa-check"></i><b>4.3.2</b> 伴随矩阵计算</a></li>
+<li class="chapter" data-level="4.3.3" data-path="r-基础操作.html"><a href="r-基础操作.html#矩阵求秩"><i class="fa fa-check"></i><b>4.3.3</b> 矩阵求秩</a></li>
+<li class="chapter" data-level="4.3.4" data-path="r-基础操作.html"><a href="r-基础操作.html#矩阵求迹"><i class="fa fa-check"></i><b>4.3.4</b> 矩阵求迹</a></li>
+<li class="chapter" data-level="4.3.5" data-path="r-基础操作.html"><a href="r-基础操作.html#矩阵求幂"><i class="fa fa-check"></i><b>4.3.5</b> 矩阵求幂</a></li>
+<li class="chapter" data-level="4.3.6" data-path="r-基础操作.html"><a href="r-基础操作.html#单位矩阵"><i class="fa fa-check"></i><b>4.3.6</b> 单位矩阵</a></li>
+<li class="chapter" data-level="4.3.7" data-path="r-基础操作.html"><a href="r-基础操作.html#对角矩阵"><i class="fa fa-check"></i><b>4.3.7</b> 对角矩阵</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="r-基础操作.html"><a href="r-基础操作.html#markdown-输出表格"><i class="fa fa-check"></i><b>4.4</b> markdown 输出表格</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="r-基础操作.html"><a href="r-基础操作.html#章节目录"><i class="fa fa-check"></i><b>4.4.1</b> 章节目录</a></li>
+<li class="chapter" data-level="4.4.2" data-path="r-基础操作.html"><a href="r-基础操作.html#rmarkdown主题设置"><i class="fa fa-check"></i><b>4.4.2</b> rmarkdown主题设置</a></li>
+<li class="chapter" data-level="4.4.3" data-path="r-基础操作.html"><a href="r-基础操作.html#yaml元数据"><i class="fa fa-check"></i><b>4.4.3</b> YAML元数据</a></li>
+<li class="chapter" data-level="4.4.4" data-path="r-基础操作.html"><a href="r-基础操作.html#data.frame转换为列表的形式"><i class="fa fa-check"></i><b>4.4.4</b> data.frame转换为列表的形式</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="r-基础操作.html"><a href="r-基础操作.html#制作幻灯片"><i class="fa fa-check"></i><b>4.5</b> 制作幻灯片</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="r-基础操作.html"><a href="r-基础操作.html#生成网页html-形式"><i class="fa fa-check"></i><b>4.5.1</b> 生成网页html 形式</a></li>
+<li class="chapter" data-level="4.5.2" data-path="r-基础操作.html"><a href="r-基础操作.html#在yaml中的设置"><i class="fa fa-check"></i><b>4.5.2</b> 在Yaml中的设置：</a></li>
+<li class="chapter" data-level="4.5.3" data-path="r-基础操作.html"><a href="r-基础操作.html#xaringan包的使用"><i class="fa fa-check"></i><b>4.5.3</b> <strong>Xaringan</strong>包的使用</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="r-基础操作.html"><a href="r-基础操作.html#ggplot绘图"><i class="fa fa-check"></i><b>4.6</b> ggplot绘图</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="r-基础操作.html"><a href="r-基础操作.html#final-plot"><i class="fa fa-check"></i><b>4.6.1</b> final plot</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="r-基础操作.html"><a href="r-基础操作.html#ploty绘图"><i class="fa fa-check"></i><b>4.7</b> ploty绘图</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="r-基础操作.html"><a href="r-基础操作.html#散点图-1"><i class="fa fa-check"></i><b>4.7.1</b> 散点图</a></li>
+<li class="chapter" data-level="4.7.2" data-path="r-基础操作.html"><a href="r-基础操作.html#柱类型柱状图堆积图直方图瀑布图"><i class="fa fa-check"></i><b>4.7.2</b> 柱类型（柱状图、堆积图、直方图、瀑布图……）</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="r-基础操作.html"><a href="r-基础操作.html#数据整理"><i class="fa fa-check"></i><b>4.8</b> 数据整理</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="r-基础操作.html"><a href="r-基础操作.html#数据结构"><i class="fa fa-check"></i><b>4.8.1</b> 数据结构</a></li>
+<li class="chapter" data-level="4.8.2" data-path="r-基础操作.html"><a href="r-基础操作.html#tibble数据结构记得进一步补充"><i class="fa fa-check"></i><b>4.8.2</b> tibble数据结构(记得进一步补充)</a></li>
+<li class="chapter" data-level="4.8.3" data-path="r-基础操作.html"><a href="r-基础操作.html#sample_n对样本进行抽样"><i class="fa fa-check"></i><b>4.8.3</b> sample_n对样本进行抽样</a></li>
+<li class="chapter" data-level="4.8.4" data-path="r-基础操作.html"><a href="r-基础操作.html#使用arrange进行排序"><i class="fa fa-check"></i><b>4.8.4</b> 使用arrange进行排序</a></li>
+<li class="chapter" data-level="4.8.5" data-path="r-基础操作.html"><a href="r-基础操作.html#利用mutate进行重新计算"><i class="fa fa-check"></i><b>4.8.5</b> 利用mutate进行重新计算</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="r-基础操作.html"><a href="r-基础操作.html#dataframe的操作"><i class="fa fa-check"></i><b>4.9</b> dataframe的操作</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="r-基础操作.html"><a href="r-基础操作.html#查询"><i class="fa fa-check"></i><b>4.9.1</b> 查询</a></li>
+<li class="chapter" data-level="4.9.2" data-path="r-基础操作.html"><a href="r-基础操作.html#修改"><i class="fa fa-check"></i><b>4.9.2</b> 修改</a></li>
+<li class="chapter" data-level="4.9.3" data-path="r-基础操作.html"><a href="r-基础操作.html#删除"><i class="fa fa-check"></i><b>4.9.3</b> 删除</a></li>
+<li class="chapter" data-level="4.9.4" data-path="r-基础操作.html"><a href="r-基础操作.html#添加"><i class="fa fa-check"></i><b>4.9.4</b> 添加</a></li>
+<li class="chapter" data-level="4.9.5" data-path="r-基础操作.html"><a href="r-基础操作.html#tidyverse系统"><i class="fa fa-check"></i><b>4.9.5</b> tidyverse系统</a></li>
+<li class="chapter" data-level="4.9.6" data-path="r-基础操作.html"><a href="r-基础操作.html#中文字体的使用"><i class="fa fa-check"></i><b>4.9.6</b> 中文字体的使用</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>5</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>5.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="5.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>5.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="随机模拟.html"><a href="随机模拟.html"><i class="fa fa-check"></i><b>6</b> 随机模拟</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="随机模拟.html"><a href="随机模拟.html#高维定积分"><i class="fa fa-check"></i><b>6.1</b> 高维定积分</a></li>
+<li class="chapter" data-level="6.2" data-path="随机模拟.html"><a href="随机模拟.html#从未知分布中采样"><i class="fa fa-check"></i><b>6.2</b> 从未知分布中采样</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="随机模拟.html"><a href="随机模拟.html#直接抽样"><i class="fa fa-check"></i><b>6.2.1</b> 直接抽样</a></li>
+<li class="chapter" data-level="6.2.2" data-path="随机模拟.html"><a href="随机模拟.html#接受-拒绝抽样算法"><i class="fa fa-check"></i><b>6.2.2</b> 接受-拒绝抽样算法</a></li>
+<li class="chapter" data-level="6.2.3" data-path="随机模拟.html"><a href="随机模拟.html#间接抽样"><i class="fa fa-check"></i><b>6.2.3</b> 间接抽样</a></li>
+<li class="chapter" data-level="6.2.4" data-path="随机模拟.html"><a href="随机模拟.html#mcmc采样"><i class="fa fa-check"></i><b>6.2.4</b> MCMC采样</a></li>
+<li class="chapter" data-level="6.2.5" data-path="随机模拟.html"><a href="随机模拟.html#算法"><i class="fa fa-check"></i><b>6.2.5</b> 算法</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="随机模拟.html"><a href="随机模拟.html#metropolis-algorithm"><i class="fa fa-check"></i><b>6.3</b> Metropolis algorithm</a></li>
+<li class="chapter" data-level="6.4" data-path="随机模拟.html"><a href="随机模拟.html#metropolis-hastings-algorithm"><i class="fa fa-check"></i><b>6.4</b> Metropolis-Hastings algorithm</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="随机模拟.html"><a href="随机模拟.html#一个概率分布样本"><i class="fa fa-check"></i><b>6.4.1</b> 一个概率分布样本</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="随机模拟.html"><a href="随机模拟.html#马尔可夫迭代"><i class="fa fa-check"></i><b>6.5</b> 马尔可夫迭代</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="随机模拟.html"><a href="随机模拟.html#马尔科夫链"><i class="fa fa-check"></i><b>6.5.1</b> 马尔科夫链</a></li>
+<li class="chapter" data-level="6.5.2" data-path="随机模拟.html"><a href="随机模拟.html#马尔可夫采样"><i class="fa fa-check"></i><b>6.5.2</b> 马尔可夫采样</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="随机模拟.html"><a href="随机模拟.html#gibbs采样"><i class="fa fa-check"></i><b>6.6</b> Gibbs采样</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="随机模拟.html"><a href="随机模拟.html#gibbs步骤"><i class="fa fa-check"></i><b>6.6.1</b> Gibbs步骤</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="随机模拟.html"><a href="随机模拟.html#重要采样法"><i class="fa fa-check"></i><b>6.7</b> 重要采样法</a></li>
+<li class="chapter" data-level="6.8" data-path="随机模拟.html"><a href="随机模拟.html#分层抽样法"><i class="fa fa-check"></i><b>6.8</b> 分层抽样法</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="优化算法.html"><a href="优化算法.html"><i class="fa fa-check"></i><b>7</b> 优化算法</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="优化算法.html"><a href="优化算法.html#牛顿优化算法"><i class="fa fa-check"></i><b>7.1</b> 牛顿优化算法</a></li>
+<li class="chapter" data-level="7.2" data-path="优化算法.html"><a href="优化算法.html#quasi-newton-methods"><i class="fa fa-check"></i><b>7.2</b> Quasi-Newton Methods</a></li>
+<li class="chapter" data-level="7.3" data-path="优化算法.html"><a href="优化算法.html#bgfs算法准牛顿算法"><i class="fa fa-check"></i><b>7.3</b> BGFS算法（准牛顿算法）</a></li>
+<li class="chapter" data-level="7.4" data-path="优化算法.html"><a href="优化算法.html#最优梯度下降算法"><i class="fa fa-check"></i><b>7.4</b> 最优梯度下降算法</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="优化算法.html"><a href="优化算法.html#原理"><i class="fa fa-check"></i><b>7.4.1</b> 原理</a></li>
+<li class="chapter" data-level="7.4.2" data-path="优化算法.html"><a href="优化算法.html#梯度下降的过程"><i class="fa fa-check"></i><b>7.4.2</b> 梯度下降的过程</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="优化算法.html"><a href="优化算法.html#随机梯度下降算法"><i class="fa fa-check"></i><b>7.5</b> 随机梯度下降算法</a></li>
+<li class="chapter" data-level="7.6" data-path="优化算法.html"><a href="优化算法.html#nelder-mead算法单纯形法"><i class="fa fa-check"></i><b>7.6</b> Nelder Mead算法（单纯形法）</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="贝叶斯统计推断.html"><a href="贝叶斯统计推断.html"><i class="fa fa-check"></i><b>8</b> 贝叶斯统计推断</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="贝叶斯统计推断.html"><a href="贝叶斯统计推断.html#常用的kernel-function高斯核函数"><i class="fa fa-check"></i><b>8.0.1</b> 常用的kernel function:高斯核函数</a></li>
+<li class="chapter" data-level="8.0.2" data-path="贝叶斯统计推断.html"><a href="贝叶斯统计推断.html#极大似然估计"><i class="fa fa-check"></i><b>8.0.2</b> 极大似然估计</a></li>
+<li class="chapter" data-level="8.0.3" data-path="贝叶斯统计推断.html"><a href="贝叶斯统计推断.html#渐近无偏"><i class="fa fa-check"></i><b>8.0.3</b> 渐近无偏</a></li>
+<li class="chapter" data-level="8.0.4" data-path="贝叶斯统计推断.html"><a href="贝叶斯统计推断.html#渐近一致"><i class="fa fa-check"></i><b>8.0.4</b> 渐近一致</a></li>
+<li class="chapter" data-level="8.0.5" data-path="贝叶斯统计推断.html"><a href="贝叶斯统计推断.html#最大后验估计"><i class="fa fa-check"></i><b>8.0.5</b> 最大后验估计</a></li>
+<li class="chapter" data-level="8.1" data-path="贝叶斯统计推断.html"><a href="贝叶斯统计推断.html#理解线性回归"><i class="fa fa-check"></i><b>8.1</b> 理解线性回归</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="贝叶斯统计推断.html"><a href="贝叶斯统计推断.html#条件分布pomegadata"><i class="fa fa-check"></i><b>8.1.1</b> 条件分布<span class="math inline">\(p(\omega|Data)\)</span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="方差缩减技术.html"><a href="方差缩减技术.html"><i class="fa fa-check"></i><b>9</b> 方差缩减技术</a>
+<ul>
+<li class="chapter" data-level="9.0.1" data-path="方差缩减技术.html"><a href="方差缩减技术.html#控制变量法"><i class="fa fa-check"></i><b>9.0.1</b> 控制变量法</a></li>
+<li class="chapter" data-level="9.0.2" data-path="方差缩减技术.html"><a href="方差缩减技术.html#对立变量法"><i class="fa fa-check"></i><b>9.0.2</b> 对立变量法</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="社会网络图.html"><a href="社会网络图.html"><i class="fa fa-check"></i><b>10</b> 社会网络图</a>
+<ul>
+<li class="chapter" data-level="10.0.1" data-path="社会网络图.html"><a href="社会网络图.html#learning-path"><i class="fa fa-check"></i><b>10.0.1</b> <span>learning path</span></a></li>
+<li class="chapter" data-level="10.0.2" data-path="社会网络图.html"><a href="社会网络图.html#layout-布局"><i class="fa fa-check"></i><b>10.0.2</b> layout 布局</a></li>
+<li class="chapter" data-level="10.0.3" data-path="社会网络图.html"><a href="社会网络图.html#颜色选择"><i class="fa fa-check"></i><b>10.0.3</b> 颜色选择</a></li>
+<li class="chapter" data-level="10.0.4" data-path="社会网络图.html"><a href="社会网络图.html#节点设置"><i class="fa fa-check"></i><b>10.0.4</b> 节点设置</a></li>
+<li class="chapter" data-level="10.0.5" data-path="社会网络图.html"><a href="社会网络图.html#线条设置"><i class="fa fa-check"></i><b>10.0.5</b> 线条设置</a></li>
+<li class="chapter" data-level="10.0.6" data-path="社会网络图.html"><a href="社会网络图.html#同配性-assortativity"><i class="fa fa-check"></i><b>10.0.6</b> 同配性 assortativity</a></li>
+<li class="chapter" data-level="10.0.7" data-path="社会网络图.html"><a href="社会网络图.html#聚类系数-clustering-cofficient"><i class="fa fa-check"></i><b>10.0.7</b> 聚类系数 Clustering cofficient</a></li>
+<li class="chapter" data-level="10.0.8" data-path="社会网络图.html"><a href="社会网络图.html#模体"><i class="fa fa-check"></i><b>10.0.8</b> 模体</a></li>
+<li class="chapter" data-level="10.1" data-path="社会网络图.html"><a href="社会网络图.html#操作网络数据"><i class="fa fa-check"></i><b>10.1</b> 操作网络数据</a></li>
+<li class="chapter" data-level="10.2" data-path="社会网络图.html"><a href="社会网络图.html#回归模型评估"><i class="fa fa-check"></i><b>10.2</b> 回归模型评估</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="社会网络图.html"><a href="社会网络图.html#残差的自相关acf图"><i class="fa fa-check"></i><b>10.2.1</b> 残差的自相关ACF图</a></li>
+<li class="chapter" data-level="10.2.2" data-path="社会网络图.html"><a href="社会网络图.html#残差变量与残差的关系图"><i class="fa fa-check"></i><b>10.2.2</b> 残差变量与残差的关系图</a></li>
+<li class="chapter" data-level="10.2.3" data-path="社会网络图.html"><a href="社会网络图.html#异常值和强影响点"><i class="fa fa-check"></i><b>10.2.3</b> 异常值和强影响点</a></li>
+<li class="chapter" data-level="10.2.4" data-path="社会网络图.html"><a href="社会网络图.html#伪回归"><i class="fa fa-check"></i><b>10.2.4</b> 伪回归</a></li>
+<li class="chapter" data-level="10.2.5" data-path="社会网络图.html"><a href="社会网络图.html#干预变量"><i class="fa fa-check"></i><b>10.2.5</b> 干预变量</a></li>
+<li class="chapter" data-level="10.2.6" data-path="社会网络图.html"><a href="社会网络图.html#傅立叶级数"><i class="fa fa-check"></i><b>10.2.6</b> 傅立叶级数</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="社会网络图.html"><a href="社会网络图.html#预测变量的筛选"><i class="fa fa-check"></i><b>10.3</b> 预测变量的筛选</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="社会网络图.html"><a href="社会网络图.html#调整可决系数-r2"><i class="fa fa-check"></i><b>10.3.1</b> 调整可决系数$ R^2$</a></li>
+<li class="chapter" data-level="10.3.2" data-path="社会网络图.html"><a href="社会网络图.html#交叉检验"><i class="fa fa-check"></i><b>10.3.2</b> 交叉检验</a></li>
+<li class="chapter" data-level="10.3.3" data-path="社会网络图.html"><a href="社会网络图.html#赤池信息准则aic"><i class="fa fa-check"></i><b>10.3.3</b> 赤池信息准则AIC</a></li>
+<li class="chapter" data-level="10.3.4" data-path="社会网络图.html"><a href="社会网络图.html#施瓦茨的贝叶斯信息准则bic"><i class="fa fa-check"></i><b>10.3.4</b> 施瓦茨的贝叶斯信息准则BIC</a></li>
+<li class="chapter" data-level="10.3.5" data-path="社会网络图.html"><a href="社会网络图.html#最佳回归子集"><i class="fa fa-check"></i><b>10.3.5</b> 最佳回归子集</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="11" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>11</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>11.1</b> Footnotes</a></li>
+<li class="chapter" data-level="11.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>11.2</b> Citations</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R语言，统计学习与语言比较</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="cross" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Cross-references<a href="cross.html#cross" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Cross-references make it easier for your readers to find and link to elements in your book.</p>
+<div id="chapters-and-sub-chapters" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Chapters and sub-chapters<a href="cross.html#chapters-and-sub-chapters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are two steps to cross-reference any heading:</p>
+<ol style="list-style-type: decimal">
+<li>Label the heading: <code># Hello world {#nice-label}</code>.
+<ul>
+<li>Leave the label off if you like the automated heading generated based on your heading title: for example, <code># Hello world</code> = <code># Hello world {#hello-world}</code>.</li>
+<li>To label an un-numbered heading, use: <code># Hello world {-#nice-label}</code> or <code>{# Hello world .unnumbered}</code>.</li>
+</ul></li>
+<li>Next, reference the labeled heading anywhere in the text using <code>\@ref(nice-label)</code>; for example, please see Chapter <a href="cross.html#cross">5</a>.
+<ul>
+<li>If you prefer text as the link instead of a numbered reference use: <a href="cross.html#cross">any text you want can go here</a>.</li>
+</ul></li>
+</ol>
+</div>
+<div id="captioned-figures-and-tables" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Captioned figures and tables<a href="cross.html#captioned-figures-and-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Figures and tables <em>with captions</em> can also be cross-referenced from elsewhere in your book using <code>\@ref(fig:chunk-label)</code> and <code>\@ref(tab:chunk-label)</code>, respectively.</p>
+<p>See Figure <a href="cross.html#fig:nice-fig">5.1</a>.</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="cross.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))</span>
+<span id="cb158-2"><a href="cross.html#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pressure, <span class="at">type =</span> <span class="st">&#39;b&#39;</span>, <span class="at">pch =</span> <span class="dv">19</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nice-fig"></span>
+<img src="_main_files/figure-html/nice-fig-1.png" alt="Plot with connected points showing that vapor pressure of mercury increases exponentially as temperature increases." width="80%" />
+<p class="caption">
+Figure 5.1: Here is a nice figure!
+</p>
+</div>
+<p>Don’t miss Table <a href="cross.html#tab:nice-tab">5.1</a>.</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="cross.html#cb159-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb159-2"><a href="cross.html#cb159-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(pressure, <span class="dv">10</span>), <span class="at">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,</span>
+<span id="cb159-3"><a href="cross.html#cb159-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">booktabs =</span> <span class="cn">TRUE</span></span>
+<span id="cb159-4"><a href="cross.html#cb159-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<table>
+<caption><span id="tab:nice-tab">Table 5.1: </span>Here is a nice table!</caption>
+<thead>
+<tr class="header">
+<th align="right">temperature</th>
+<th align="right">pressure</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">0.0002</td>
+</tr>
+<tr class="even">
+<td align="right">20</td>
+<td align="right">0.0012</td>
+</tr>
+<tr class="odd">
+<td align="right">40</td>
+<td align="right">0.0060</td>
+</tr>
+<tr class="even">
+<td align="right">60</td>
+<td align="right">0.0300</td>
+</tr>
+<tr class="odd">
+<td align="right">80</td>
+<td align="right">0.0900</td>
+</tr>
+<tr class="even">
+<td align="right">100</td>
+<td align="right">0.2700</td>
+</tr>
+<tr class="odd">
+<td align="right">120</td>
+<td align="right">0.7500</td>
+</tr>
+<tr class="even">
+<td align="right">140</td>
+<td align="right">1.8500</td>
+</tr>
+<tr class="odd">
+<td align="right">160</td>
+<td align="right">4.2000</td>
+</tr>
+<tr class="even">
+<td align="right">180</td>
+<td align="right">8.8000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-基础操作.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="随机模拟.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/cheinchi/r-statistics/edit/BRANCH/04-data-visualization.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

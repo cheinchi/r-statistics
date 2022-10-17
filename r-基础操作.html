@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 R 基础操作 | R语言，统计学习与语言比较</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 R 基础操作 | R语言，统计学习与语言比较" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 R 基础操作 | R语言，统计学习与语言比较" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Jianqi" />
+
+
+<meta name="date" content="2022-10-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r数据类型.html"/>
+<link rel="next" href="cross.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 关于</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#r介绍"><i class="fa fa-check"></i><b>1.1</b> R介绍</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#四则运算"><i class="fa fa-check"></i><b>1.2</b> 四则运算</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#乘方运算"><i class="fa fa-check"></i><b>1.2.1</b> 乘方运算</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#数学函数"><i class="fa fa-check"></i><b>1.2.2</b> 数学函数</a></li>
+<li class="chapter" data-level="1.2.3" data-path="index.html"><a href="index.html#概率分布"><i class="fa fa-check"></i><b>1.2.3</b> 概率分布</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#向量与矩阵"><i class="fa fa-check"></i><b>1.3</b> 向量与矩阵</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#数值型向量"><i class="fa fa-check"></i><b>1.3.1</b> 数值型向量</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#逻辑型向量"><i class="fa fa-check"></i><b>1.3.2</b> 逻辑型向量</a></li>
+<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#字符型向量"><i class="fa fa-check"></i><b>1.3.3</b> 字符型向量</a></li>
+<li class="chapter" data-level="1.3.4" data-path="index.html"><a href="index.html#向量下标与子集"><i class="fa fa-check"></i><b>1.3.4</b> 向量下标与子集</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r初等统计分析.html"><a href="r初等统计分析.html"><i class="fa fa-check"></i><b>2</b> R初等统计分析</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r初等统计分析.html"><a href="r初等统计分析.html#概率分布-1"><i class="fa fa-check"></i><b>2.1</b> 概率分布</a></li>
+<li class="chapter" data-level="2.2" data-path="r初等统计分析.html"><a href="r初等统计分析.html#最大似然估计mle"><i class="fa fa-check"></i><b>2.2</b> 最大似然估计(MLE)</a></li>
+<li class="chapter" data-level="2.3" data-path="r初等统计分析.html"><a href="r初等统计分析.html#广义线性回归"><i class="fa fa-check"></i><b>2.3</b> 广义线性回归</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="r初等统计分析.html"><a href="r初等统计分析.html#混合模型"><i class="fa fa-check"></i><b>2.3.1</b> 混合模型</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="r初等统计分析.html"><a href="r初等统计分析.html#逻辑回归对数似然函数"><i class="fa fa-check"></i><b>2.4</b> 逻辑回归对数似然函数</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="r初等统计分析.html"><a href="r初等统计分析.html#逻辑回归"><i class="fa fa-check"></i><b>2.4.1</b> 逻辑回归</a></li>
+<li class="chapter" data-level="2.4.2" data-path="r初等统计分析.html"><a href="r初等统计分析.html#创建回归模型"><i class="fa fa-check"></i><b>2.4.2</b> 创建回归模型</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="r初等统计分析.html"><a href="r初等统计分析.html#逻辑回归的梯度下降"><i class="fa fa-check"></i><b>2.5</b> 逻辑回归的梯度下降</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="r初等统计分析.html"><a href="r初等统计分析.html#小样本"><i class="fa fa-check"></i><b>2.5.1</b> 小样本</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="r初等统计分析.html"><a href="r初等统计分析.html#多重共线性"><i class="fa fa-check"></i><b>2.6</b> 多重共线性</a></li>
+<li class="chapter" data-level="2.7" data-path="r初等统计分析.html"><a href="r初等统计分析.html#强影响点分析"><i class="fa fa-check"></i><b>2.7</b> 强影响点分析</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r数据类型.html"><a href="r数据类型.html"><i class="fa fa-check"></i><b>3</b> R数据类型</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r数据类型.html"><a href="r数据类型.html#类型转换"><i class="fa fa-check"></i><b>3.1</b> 类型转换</a></li>
+<li class="chapter" data-level="3.2" data-path="r数据类型.html"><a href="r数据类型.html#r中元素属性"><i class="fa fa-check"></i><b>3.2</b> R中元素属性</a></li>
+<li class="chapter" data-level="3.3" data-path="r数据类型.html"><a href="r数据类型.html#日期时间"><i class="fa fa-check"></i><b>3.3</b> 日期时间</a></li>
+<li class="chapter" data-level="3.4" data-path="r数据类型.html"><a href="r数据类型.html#因子类型"><i class="fa fa-check"></i><b>3.4</b> 因子类型</a></li>
+<li class="chapter" data-level="3.5" data-path="r数据类型.html"><a href="r数据类型.html#列表类型"><i class="fa fa-check"></i><b>3.5</b> 列表类型</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="r-基础操作.html"><a href="r-基础操作.html"><i class="fa fa-check"></i><b>4</b> R 基础操作</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="r-基础操作.html"><a href="r-基础操作.html#基本绘图"><i class="fa fa-check"></i><b>4.1</b> 基本绘图</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="r-基础操作.html"><a href="r-基础操作.html#颜色"><i class="fa fa-check"></i><b>4.1.1</b> 颜色</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="r-基础操作.html"><a href="r-基础操作.html#图库"><i class="fa fa-check"></i><b>4.2</b> 图库</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="r-基础操作.html"><a href="r-基础操作.html#直方图histogram"><i class="fa fa-check"></i><b>4.2.1</b> 直方图histogram</a></li>
+<li class="chapter" data-level="4.2.2" data-path="r-基础操作.html"><a href="r-基础操作.html#茎叶图"><i class="fa fa-check"></i><b>4.2.2</b> 茎叶图</a></li>
+<li class="chapter" data-level="4.2.3" data-path="r-基础操作.html"><a href="r-基础操作.html#条形图"><i class="fa fa-check"></i><b>4.2.3</b> 条形图</a></li>
+<li class="chapter" data-level="4.2.4" data-path="r-基础操作.html"><a href="r-基础操作.html#箱线图"><i class="fa fa-check"></i><b>4.2.4</b> 箱线图</a></li>
+<li class="chapter" data-level="4.2.5" data-path="r-基础操作.html"><a href="r-基础操作.html#散点图"><i class="fa fa-check"></i><b>4.2.5</b> 散点图</a></li>
+<li class="chapter" data-level="4.2.6" data-path="r-基础操作.html"><a href="r-基础操作.html#关联图"><i class="fa fa-check"></i><b>4.2.6</b> 关联图</a></li>
+<li class="chapter" data-level="4.2.7" data-path="r-基础操作.html"><a href="r-基础操作.html#条件密度图"><i class="fa fa-check"></i><b>4.2.7</b> 条件密度图</a></li>
+<li class="chapter" data-level="4.2.8" data-path="r-基础操作.html"><a href="r-基础操作.html#条件分割图"><i class="fa fa-check"></i><b>4.2.8</b> 条件分割图</a></li>
+<li class="chapter" data-level="4.2.9" data-path="r-基础操作.html"><a href="r-基础操作.html#坐标轴须"><i class="fa fa-check"></i><b>4.2.9</b> 坐标轴须</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="r-基础操作.html"><a href="r-基础操作.html#矩阵计算"><i class="fa fa-check"></i><b>4.3</b> 矩阵计算</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="r-基础操作.html"><a href="r-基础操作.html#求特征向量"><i class="fa fa-check"></i><b>4.3.1</b> 求特征向量</a></li>
+<li class="chapter" data-level="4.3.2" data-path="r-基础操作.html"><a href="r-基础操作.html#伴随矩阵计算"><i class="fa fa-check"></i><b>4.3.2</b> 伴随矩阵计算</a></li>
+<li class="chapter" data-level="4.3.3" data-path="r-基础操作.html"><a href="r-基础操作.html#矩阵求秩"><i class="fa fa-check"></i><b>4.3.3</b> 矩阵求秩</a></li>
+<li class="chapter" data-level="4.3.4" data-path="r-基础操作.html"><a href="r-基础操作.html#矩阵求迹"><i class="fa fa-check"></i><b>4.3.4</b> 矩阵求迹</a></li>
+<li class="chapter" data-level="4.3.5" data-path="r-基础操作.html"><a href="r-基础操作.html#矩阵求幂"><i class="fa fa-check"></i><b>4.3.5</b> 矩阵求幂</a></li>
+<li class="chapter" data-level="4.3.6" data-path="r-基础操作.html"><a href="r-基础操作.html#单位矩阵"><i class="fa fa-check"></i><b>4.3.6</b> 单位矩阵</a></li>
+<li class="chapter" data-level="4.3.7" data-path="r-基础操作.html"><a href="r-基础操作.html#对角矩阵"><i class="fa fa-check"></i><b>4.3.7</b> 对角矩阵</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="r-基础操作.html"><a href="r-基础操作.html#markdown-输出表格"><i class="fa fa-check"></i><b>4.4</b> markdown 输出表格</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="r-基础操作.html"><a href="r-基础操作.html#章节目录"><i class="fa fa-check"></i><b>4.4.1</b> 章节目录</a></li>
+<li class="chapter" data-level="4.4.2" data-path="r-基础操作.html"><a href="r-基础操作.html#rmarkdown主题设置"><i class="fa fa-check"></i><b>4.4.2</b> rmarkdown主题设置</a></li>
+<li class="chapter" data-level="4.4.3" data-path="r-基础操作.html"><a href="r-基础操作.html#yaml元数据"><i class="fa fa-check"></i><b>4.4.3</b> YAML元数据</a></li>
+<li class="chapter" data-level="4.4.4" data-path="r-基础操作.html"><a href="r-基础操作.html#data.frame转换为列表的形式"><i class="fa fa-check"></i><b>4.4.4</b> data.frame转换为列表的形式</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="r-基础操作.html"><a href="r-基础操作.html#制作幻灯片"><i class="fa fa-check"></i><b>4.5</b> 制作幻灯片</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="r-基础操作.html"><a href="r-基础操作.html#生成网页html-形式"><i class="fa fa-check"></i><b>4.5.1</b> 生成网页html 形式</a></li>
+<li class="chapter" data-level="4.5.2" data-path="r-基础操作.html"><a href="r-基础操作.html#在yaml中的设置"><i class="fa fa-check"></i><b>4.5.2</b> 在Yaml中的设置：</a></li>
+<li class="chapter" data-level="4.5.3" data-path="r-基础操作.html"><a href="r-基础操作.html#xaringan包的使用"><i class="fa fa-check"></i><b>4.5.3</b> <strong>Xaringan</strong>包的使用</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="r-基础操作.html"><a href="r-基础操作.html#ggplot绘图"><i class="fa fa-check"></i><b>4.6</b> ggplot绘图</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="r-基础操作.html"><a href="r-基础操作.html#final-plot"><i class="fa fa-check"></i><b>4.6.1</b> final plot</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="r-基础操作.html"><a href="r-基础操作.html#ploty绘图"><i class="fa fa-check"></i><b>4.7</b> ploty绘图</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="r-基础操作.html"><a href="r-基础操作.html#散点图-1"><i class="fa fa-check"></i><b>4.7.1</b> 散点图</a></li>
+<li class="chapter" data-level="4.7.2" data-path="r-基础操作.html"><a href="r-基础操作.html#柱类型柱状图堆积图直方图瀑布图"><i class="fa fa-check"></i><b>4.7.2</b> 柱类型（柱状图、堆积图、直方图、瀑布图……）</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="r-基础操作.html"><a href="r-基础操作.html#数据整理"><i class="fa fa-check"></i><b>4.8</b> 数据整理</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="r-基础操作.html"><a href="r-基础操作.html#数据结构"><i class="fa fa-check"></i><b>4.8.1</b> 数据结构</a></li>
+<li class="chapter" data-level="4.8.2" data-path="r-基础操作.html"><a href="r-基础操作.html#tibble数据结构记得进一步补充"><i class="fa fa-check"></i><b>4.8.2</b> tibble数据结构(记得进一步补充)</a></li>
+<li class="chapter" data-level="4.8.3" data-path="r-基础操作.html"><a href="r-基础操作.html#sample_n对样本进行抽样"><i class="fa fa-check"></i><b>4.8.3</b> sample_n对样本进行抽样</a></li>
+<li class="chapter" data-level="4.8.4" data-path="r-基础操作.html"><a href="r-基础操作.html#使用arrange进行排序"><i class="fa fa-check"></i><b>4.8.4</b> 使用arrange进行排序</a></li>
+<li class="chapter" data-level="4.8.5" data-path="r-基础操作.html"><a href="r-基础操作.html#利用mutate进行重新计算"><i class="fa fa-check"></i><b>4.8.5</b> 利用mutate进行重新计算</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="r-基础操作.html"><a href="r-基础操作.html#dataframe的操作"><i class="fa fa-check"></i><b>4.9</b> dataframe的操作</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="r-基础操作.html"><a href="r-基础操作.html#查询"><i class="fa fa-check"></i><b>4.9.1</b> 查询</a></li>
+<li class="chapter" data-level="4.9.2" data-path="r-基础操作.html"><a href="r-基础操作.html#修改"><i class="fa fa-check"></i><b>4.9.2</b> 修改</a></li>
+<li class="chapter" data-level="4.9.3" data-path="r-基础操作.html"><a href="r-基础操作.html#删除"><i class="fa fa-check"></i><b>4.9.3</b> 删除</a></li>
+<li class="chapter" data-level="4.9.4" data-path="r-基础操作.html"><a href="r-基础操作.html#添加"><i class="fa fa-check"></i><b>4.9.4</b> 添加</a></li>
+<li class="chapter" data-level="4.9.5" data-path="r-基础操作.html"><a href="r-基础操作.html#tidyverse系统"><i class="fa fa-check"></i><b>4.9.5</b> tidyverse系统</a></li>
+<li class="chapter" data-level="4.9.6" data-path="r-基础操作.html"><a href="r-基础操作.html#中文字体的使用"><i class="fa fa-check"></i><b>4.9.6</b> 中文字体的使用</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>5</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>5.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="5.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>5.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="随机模拟.html"><a href="随机模拟.html"><i class="fa fa-check"></i><b>6</b> 随机模拟</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="随机模拟.html"><a href="随机模拟.html#高维定积分"><i class="fa fa-check"></i><b>6.1</b> 高维定积分</a></li>
+<li class="chapter" data-level="6.2" data-path="随机模拟.html"><a href="随机模拟.html#从未知分布中采样"><i class="fa fa-check"></i><b>6.2</b> 从未知分布中采样</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="随机模拟.html"><a href="随机模拟.html#直接抽样"><i class="fa fa-check"></i><b>6.2.1</b> 直接抽样</a></li>
+<li class="chapter" data-level="6.2.2" data-path="随机模拟.html"><a href="随机模拟.html#接受-拒绝抽样算法"><i class="fa fa-check"></i><b>6.2.2</b> 接受-拒绝抽样算法</a></li>
+<li class="chapter" data-level="6.2.3" data-path="随机模拟.html"><a href="随机模拟.html#间接抽样"><i class="fa fa-check"></i><b>6.2.3</b> 间接抽样</a></li>
+<li class="chapter" data-level="6.2.4" data-path="随机模拟.html"><a href="随机模拟.html#mcmc采样"><i class="fa fa-check"></i><b>6.2.4</b> MCMC采样</a></li>
+<li class="chapter" data-level="6.2.5" data-path="随机模拟.html"><a href="随机模拟.html#算法"><i class="fa fa-check"></i><b>6.2.5</b> 算法</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="随机模拟.html"><a href="随机模拟.html#metropolis-algorithm"><i class="fa fa-check"></i><b>6.3</b> Metropolis algorithm</a></li>
+<li class="chapter" data-level="6.4" data-path="随机模拟.html"><a href="随机模拟.html#metropolis-hastings-algorithm"><i class="fa fa-check"></i><b>6.4</b> Metropolis-Hastings algorithm</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="随机模拟.html"><a href="随机模拟.html#一个概率分布样本"><i class="fa fa-check"></i><b>6.4.1</b> 一个概率分布样本</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="随机模拟.html"><a href="随机模拟.html#马尔可夫迭代"><i class="fa fa-check"></i><b>6.5</b> 马尔可夫迭代</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="随机模拟.html"><a href="随机模拟.html#马尔科夫链"><i class="fa fa-check"></i><b>6.5.1</b> 马尔科夫链</a></li>
+<li class="chapter" data-level="6.5.2" data-path="随机模拟.html"><a href="随机模拟.html#马尔可夫采样"><i class="fa fa-check"></i><b>6.5.2</b> 马尔可夫采样</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="随机模拟.html"><a href="随机模拟.html#gibbs采样"><i class="fa fa-check"></i><b>6.6</b> Gibbs采样</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="随机模拟.html"><a href="随机模拟.html#gibbs步骤"><i class="fa fa-check"></i><b>6.6.1</b> Gibbs步骤</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="随机模拟.html"><a href="随机模拟.html#重要采样法"><i class="fa fa-check"></i><b>6.7</b> 重要采样法</a></li>
+<li class="chapter" data-level="6.8" data-path="随机模拟.html"><a href="随机模拟.html#分层抽样法"><i class="fa fa-check"></i><b>6.8</b> 分层抽样法</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="优化算法.html"><a href="优化算法.html"><i class="fa fa-check"></i><b>7</b> 优化算法</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="优化算法.html"><a href="优化算法.html#牛顿优化算法"><i class="fa fa-check"></i><b>7.1</b> 牛顿优化算法</a></li>
+<li class="chapter" data-level="7.2" data-path="优化算法.html"><a href="优化算法.html#quasi-newton-methods"><i class="fa fa-check"></i><b>7.2</b> Quasi-Newton Methods</a></li>
+<li class="chapter" data-level="7.3" data-path="优化算法.html"><a href="优化算法.html#bgfs算法准牛顿算法"><i class="fa fa-check"></i><b>7.3</b> BGFS算法（准牛顿算法）</a></li>
+<li class="chapter" data-level="7.4" data-path="优化算法.html"><a href="优化算法.html#最优梯度下降算法"><i class="fa fa-check"></i><b>7.4</b> 最优梯度下降算法</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="优化算法.html"><a href="优化算法.html#原理"><i class="fa fa-check"></i><b>7.4.1</b> 原理</a></li>
+<li class="chapter" data-level="7.4.2" data-path="优化算法.html"><a href="优化算法.html#梯度下降的过程"><i class="fa fa-check"></i><b>7.4.2</b> 梯度下降的过程</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="优化算法.html"><a href="优化算法.html#随机梯度下降算法"><i class="fa fa-check"></i><b>7.5</b> 随机梯度下降算法</a></li>
+<li class="chapter" data-level="7.6" data-path="优化算法.html"><a href="优化算法.html#nelder-mead算法单纯形法"><i class="fa fa-check"></i><b>7.6</b> Nelder Mead算法（单纯形法）</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="贝叶斯统计推断.html"><a href="贝叶斯统计推断.html"><i class="fa fa-check"></i><b>8</b> 贝叶斯统计推断</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="贝叶斯统计推断.html"><a href="贝叶斯统计推断.html#常用的kernel-function高斯核函数"><i class="fa fa-check"></i><b>8.0.1</b> 常用的kernel function:高斯核函数</a></li>
+<li class="chapter" data-level="8.0.2" data-path="贝叶斯统计推断.html"><a href="贝叶斯统计推断.html#极大似然估计"><i class="fa fa-check"></i><b>8.0.2</b> 极大似然估计</a></li>
+<li class="chapter" data-level="8.0.3" data-path="贝叶斯统计推断.html"><a href="贝叶斯统计推断.html#渐近无偏"><i class="fa fa-check"></i><b>8.0.3</b> 渐近无偏</a></li>
+<li class="chapter" data-level="8.0.4" data-path="贝叶斯统计推断.html"><a href="贝叶斯统计推断.html#渐近一致"><i class="fa fa-check"></i><b>8.0.4</b> 渐近一致</a></li>
+<li class="chapter" data-level="8.0.5" data-path="贝叶斯统计推断.html"><a href="贝叶斯统计推断.html#最大后验估计"><i class="fa fa-check"></i><b>8.0.5</b> 最大后验估计</a></li>
+<li class="chapter" data-level="8.1" data-path="贝叶斯统计推断.html"><a href="贝叶斯统计推断.html#理解线性回归"><i class="fa fa-check"></i><b>8.1</b> 理解线性回归</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="贝叶斯统计推断.html"><a href="贝叶斯统计推断.html#条件分布pomegadata"><i class="fa fa-check"></i><b>8.1.1</b> 条件分布<span class="math inline">\(p(\omega|Data)\)</span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="方差缩减技术.html"><a href="方差缩减技术.html"><i class="fa fa-check"></i><b>9</b> 方差缩减技术</a>
+<ul>
+<li class="chapter" data-level="9.0.1" data-path="方差缩减技术.html"><a href="方差缩减技术.html#控制变量法"><i class="fa fa-check"></i><b>9.0.1</b> 控制变量法</a></li>
+<li class="chapter" data-level="9.0.2" data-path="方差缩减技术.html"><a href="方差缩减技术.html#对立变量法"><i class="fa fa-check"></i><b>9.0.2</b> 对立变量法</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="社会网络图.html"><a href="社会网络图.html"><i class="fa fa-check"></i><b>10</b> 社会网络图</a>
+<ul>
+<li class="chapter" data-level="10.0.1" data-path="社会网络图.html"><a href="社会网络图.html#learning-path"><i class="fa fa-check"></i><b>10.0.1</b> <span>learning path</span></a></li>
+<li class="chapter" data-level="10.0.2" data-path="社会网络图.html"><a href="社会网络图.html#layout-布局"><i class="fa fa-check"></i><b>10.0.2</b> layout 布局</a></li>
+<li class="chapter" data-level="10.0.3" data-path="社会网络图.html"><a href="社会网络图.html#颜色选择"><i class="fa fa-check"></i><b>10.0.3</b> 颜色选择</a></li>
+<li class="chapter" data-level="10.0.4" data-path="社会网络图.html"><a href="社会网络图.html#节点设置"><i class="fa fa-check"></i><b>10.0.4</b> 节点设置</a></li>
+<li class="chapter" data-level="10.0.5" data-path="社会网络图.html"><a href="社会网络图.html#线条设置"><i class="fa fa-check"></i><b>10.0.5</b> 线条设置</a></li>
+<li class="chapter" data-level="10.0.6" data-path="社会网络图.html"><a href="社会网络图.html#同配性-assortativity"><i class="fa fa-check"></i><b>10.0.6</b> 同配性 assortativity</a></li>
+<li class="chapter" data-level="10.0.7" data-path="社会网络图.html"><a href="社会网络图.html#聚类系数-clustering-cofficient"><i class="fa fa-check"></i><b>10.0.7</b> 聚类系数 Clustering cofficient</a></li>
+<li class="chapter" data-level="10.0.8" data-path="社会网络图.html"><a href="社会网络图.html#模体"><i class="fa fa-check"></i><b>10.0.8</b> 模体</a></li>
+<li class="chapter" data-level="10.1" data-path="社会网络图.html"><a href="社会网络图.html#操作网络数据"><i class="fa fa-check"></i><b>10.1</b> 操作网络数据</a></li>
+<li class="chapter" data-level="10.2" data-path="社会网络图.html"><a href="社会网络图.html#回归模型评估"><i class="fa fa-check"></i><b>10.2</b> 回归模型评估</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="社会网络图.html"><a href="社会网络图.html#残差的自相关acf图"><i class="fa fa-check"></i><b>10.2.1</b> 残差的自相关ACF图</a></li>
+<li class="chapter" data-level="10.2.2" data-path="社会网络图.html"><a href="社会网络图.html#残差变量与残差的关系图"><i class="fa fa-check"></i><b>10.2.2</b> 残差变量与残差的关系图</a></li>
+<li class="chapter" data-level="10.2.3" data-path="社会网络图.html"><a href="社会网络图.html#异常值和强影响点"><i class="fa fa-check"></i><b>10.2.3</b> 异常值和强影响点</a></li>
+<li class="chapter" data-level="10.2.4" data-path="社会网络图.html"><a href="社会网络图.html#伪回归"><i class="fa fa-check"></i><b>10.2.4</b> 伪回归</a></li>
+<li class="chapter" data-level="10.2.5" data-path="社会网络图.html"><a href="社会网络图.html#干预变量"><i class="fa fa-check"></i><b>10.2.5</b> 干预变量</a></li>
+<li class="chapter" data-level="10.2.6" data-path="社会网络图.html"><a href="社会网络图.html#傅立叶级数"><i class="fa fa-check"></i><b>10.2.6</b> 傅立叶级数</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="社会网络图.html"><a href="社会网络图.html#预测变量的筛选"><i class="fa fa-check"></i><b>10.3</b> 预测变量的筛选</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="社会网络图.html"><a href="社会网络图.html#调整可决系数-r2"><i class="fa fa-check"></i><b>10.3.1</b> 调整可决系数$ R^2$</a></li>
+<li class="chapter" data-level="10.3.2" data-path="社会网络图.html"><a href="社会网络图.html#交叉检验"><i class="fa fa-check"></i><b>10.3.2</b> 交叉检验</a></li>
+<li class="chapter" data-level="10.3.3" data-path="社会网络图.html"><a href="社会网络图.html#赤池信息准则aic"><i class="fa fa-check"></i><b>10.3.3</b> 赤池信息准则AIC</a></li>
+<li class="chapter" data-level="10.3.4" data-path="社会网络图.html"><a href="社会网络图.html#施瓦茨的贝叶斯信息准则bic"><i class="fa fa-check"></i><b>10.3.4</b> 施瓦茨的贝叶斯信息准则BIC</a></li>
+<li class="chapter" data-level="10.3.5" data-path="社会网络图.html"><a href="社会网络图.html#最佳回归子集"><i class="fa fa-check"></i><b>10.3.5</b> 最佳回归子集</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="11" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>11</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>11.1</b> Footnotes</a></li>
+<li class="chapter" data-level="11.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>11.2</b> Citations</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R语言，统计学习与语言比较</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-基础操作" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> R 基础操作<a href="r-基础操作.html#r-基础操作" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="基本绘图" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> 基本绘图<a href="r-基础操作.html#基本绘图" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="颜色" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> 颜色<a href="r-基础操作.html#颜色" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R中颜色设置主要依靠<strong>grDevices</strong>包的支持，其中提供大量颜色选择函数和生成函数。</p>
+<p>固定颜色选择函数：R提供的自带固定种类的颜色，主要是<code>colors()</code>以及<code>palette()</code>：</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="r-基础操作.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;colors-bar.pdf&quot;</span>, <span class="at">height =</span> <span class="dv">120</span>)</span>
+<span id="cb109-2"><a href="r-基础操作.html#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">3</span>, <span class="dv">0</span>) <span class="sc">+</span> <span class="fl">0.1</span>, <span class="at">yaxs =</span> <span class="st">&quot;i&quot;</span>)</span>
+<span id="cb109-3"><a href="r-基础操作.html#cb109-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">length</span>(<span class="fu">colors</span>())),</span>
+<span id="cb109-4"><a href="r-基础操作.html#cb109-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="fu">rev</span>(<span class="fu">colors</span>()), <span class="at">names.arg =</span> <span class="fu">rev</span>(<span class="fu">colors</span>()), <span class="at">horiz =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb109-5"><a href="r-基础操作.html#cb109-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">las =</span> <span class="dv">1</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">main =</span> <span class="fu">expression</span>(<span class="st">&quot;Bars of colors in&quot;</span> <span class="sc">~</span> <span class="fu">italic</span>(<span class="fu">colors</span>()))</span>
+<span id="cb109-6"><a href="r-基础操作.html#cb109-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb109-7"><a href="r-基础操作.html#cb109-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<p><code>title()</code>函数用于添加标题，<code>text()</code>函数用于向图形中任意位置添加文本，<code>mtext()</code>函数用于向图中四条边上添加文本。</p>
+<p>前面两个参数<code>x</code>和<code>y</code>表示图例的坐标位置（左上角顶点的坐标）</p>
+<p><code>legend</code>参数通常是一个字符向量，表示图例中的文字；</p>
+<p><code>fill</code>参数指定一个与图例字符向量对应的颜色向量用于在文本左边绘制一个颜色填充方块；</p>
+<p><code>col</code>参数设置图例中点和线的颜色</p>
+</div>
+</div>
+<div id="图库" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> 图库<a href="r-基础操作.html#图库" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="直方图histogram" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> 直方图histogram<a href="r-基础操作.html#直方图histogram" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>用于展示连续数据的最好方法</p>
+<p>$ f(x)=F’(x)=_{h} $</p>
+</div>
+<div id="茎叶图" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> 茎叶图<a href="r-基础操作.html#茎叶图" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>同样用于展示数据密度的工具，但刻画略显粗劣；</p>
+<p><code>stem(x,scale=1,width=80,aton=1e-08)</code></p>
+<p>参数<code>scale</code>控制节与节之间的长度；</p>
+<p>width控制茎叶图的宽度；</p>
+<p>以一个整数表示后面还有多少片叶子没有被画出；</p>
+<p><code>head(islands,10).  ## R自带的数据集</code></p>
+</div>
+<div id="条形图" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> 条形图<a href="r-基础操作.html#条形图" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="r-基础操作.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="fl">2.5</span>, <span class="fl">0.5</span>, <span class="fl">0.1</span>))</span></code></pre></div>
+<p><code>mar</code>：调整bottom左 top 右的边界宽度（以线的数量来衡量，另一个mai是以inchs来衡量，一般用mar，有default值）</p>
+<p><code>mfrow</code>显示的是subsequent</p>
+<p><code>mfg</code>表示在图中哪一个将会被draw在给出<code>c(i,j)</code>的情况下；</p>
+<p><code>new</code>每叠加一次新图形，运行一次该程序命令，即可实现在原图上继续叠加数据绘图</p>
+<pre class="par（mfrow=c(2,2))```就可以将多个图出"><code>
+
+```r
+par(mfrow=c(3,3))
+plot(Nile)
+plot(Nile)
+plot(Nile)
+plot(Nile)
+plot(Nile)
+plot(Nile)
+plot(Nile)
+plot(Nile)
+plot(Nile)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p>2、使用<a href="https://so.csdn.net/so/search?q=split&amp;spm=1001.2101.3001.7020">split</a>.screen()</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="r-基础操作.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">split.screen</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>))      <span class="co"># split display into two screens</span></span></code></pre></div>
+<pre><code>## [1] 1 2</code></pre>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="r-基础操作.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">split.screen</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="at">screen =</span> <span class="dv">2</span>) <span class="co"># now split the bottom half into 3</span></span></code></pre></div>
+<pre><code>## [1] 3 4 5</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="r-基础操作.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">screen</span>(<span class="dv">1</span>) <span class="co"># prepare screen 1 for output</span></span>
+<span id="cb116-2"><a href="r-基础操作.html#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">1</span>)</span>
+<span id="cb116-3"><a href="r-基础操作.html#cb116-3" aria-hidden="true" tabindex="-1"></a><span class="fu">screen</span>(<span class="dv">4</span>) <span class="co"># prepare screen 4 for output</span></span>
+<span id="cb116-4"><a href="r-基础操作.html#cb116-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">1</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="r-基础操作.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">close.screen</span>(<span class="at">all =</span> <span class="cn">TRUE</span>) <span class="co"># exit split-screen mode</span></span>
+<span id="cb117-2"><a href="r-基础操作.html#cb117-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-3"><a href="r-基础操作.html#cb117-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-4"><a href="r-基础操作.html#cb117-4" aria-hidden="true" tabindex="-1"></a><span class="fu">split.screen</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>))    <span class="co"># split display into two screens</span></span></code></pre></div>
+<pre><code>## [1] 1 2</code></pre>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="r-基础操作.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">split.screen</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="dv">2</span>) <span class="co"># split bottom half in two</span></span></code></pre></div>
+<pre><code>## [1] 3 4</code></pre>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="r-基础操作.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)  <span class="co"># screen 3 is active, draw plot</span></span>
+<span id="cb121-2"><a href="r-基础操作.html#cb121-2" aria-hidden="true" tabindex="-1"></a><span class="fu">erase.screen</span>()  <span class="co">#forgot label, erase and redraw</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-32-2.png" width="672" /></p>
+<p><strong>plot将图重叠在一个坐标系内的方法：</strong></p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="r-基础操作.html#cb122-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb122-2"><a href="r-基础操作.html#cb122-2" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb122-3"><a href="r-基础操作.html#cb122-3" aria-hidden="true" tabindex="-1"></a>t <span class="ot">=</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="at">by=</span><span class="fl">0.1</span>)</span>
+<span id="cb122-4"><a href="r-基础操作.html#cb122-4" aria-hidden="true" tabindex="-1"></a>n1 <span class="ot">=</span> <span class="dv">1</span> <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> sigma) <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>(t <span class="sc">-</span> m)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma) )</span>
+<span id="cb122-5"><a href="r-基础操作.html#cb122-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t,n1)</span>
+<span id="cb122-6"><a href="r-基础操作.html#cb122-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
+<span id="cb122-7"><a href="r-基础操作.html#cb122-7" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb122-8"><a href="r-基础操作.html#cb122-8" aria-hidden="true" tabindex="-1"></a>n2 <span class="ot">=</span> <span class="dv">1</span> <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> sigma) <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>(t <span class="sc">-</span> m)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma) )</span>
+<span id="cb122-9"><a href="r-基础操作.html#cb122-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t,n2)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<pre><code>plot(x1,x2,xlab=&quot;维度&quot;,ylab=&quot;物种多样性数量&quot;); #做散点图
+lines(lowess(x1,x2),col=2);    #利用lowess做回归曲线
+par(new=TRUE)  # 是否叠加新图形，没叠加一次运行一次该命令
+plot(x3,x4,yaxt=&quot;n&quot;,xaxt=&quot;n&quot;,xlab=&quot;维度&quot;,ylab=&quot;物种多样性数量&quot;);    #做散点图
+lines(lowess(x1,x2),col=2,lty=4);    #利用lowess做回归曲线</code></pre>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="r-基础操作.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(v,main,xlab,xlim,ylim,breaks,col,border) </span></code></pre></div>
+<p><em>v</em> - 是包含直方图中使用数值的向量。</p>
+<p><em>main</em> - 表示图表的标题。</p>
+<p><em>col</em> - 用于设置条的颜色。</p>
+<p><em>border</em> - 用于设置每个栏的边框颜色。</p>
+<p><em>xlab</em> - 用于描述<code>x</code>轴。</p>
+<p><em>xlim</em> - 用于指定<code>x</code>轴上的值范围。</p>
+<p><em>ylim</em> - 用于指定<code>y</code>轴上的值范围。</p>
+<p><em>breaks</em> - 是用来提及每个栏的宽度。</p>
+</div>
+<div id="箱线图" class="section level3 hasAnchor" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> 箱线图<a href="r-基础操作.html#箱线图" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R中相应的函数为<code>boxplot()</code></p>
+<pre><code>#default usuage
+usage(boxplot.default)
+#formula usuage
+usage(graphics:::boxplot.formula)</code></pre>
+<p><code>boxplot()</code>是一个泛型函数，可以适应不同的参数类型。</p>
+<p><code>notch</code>是一个有用的逻辑参数，决定是否在箱子上画凹槽，凹槽所表示的是中位数的一个区间估计，其计算式：
+<span class="math display">\[
+Q_2+/-1.58\mathrm{IQR}/\sqrt{n}
+\]</span>
+区间的置信水平为95%，在比较两组数据中位数差异时候，只需要箱线图的凹槽是否有重叠部分就行；</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="r-基础操作.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(count <span class="sc">~</span> spray, <span class="at">data =</span> InsectSprays,</span>
+<span id="cb126-2"><a href="r-基础操作.html#cb126-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">&quot;lightgray&quot;</span>, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">pch =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="r-基础操作.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> count, <span class="at">x =</span> spray), <span class="at">data =</span> InsectSprays) <span class="sc">+</span></span>
+<span id="cb127-2"><a href="r-基础操作.html#cb127-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb127-3"><a href="r-基础操作.html#cb127-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-34-2.png" width="672" /></p>
+</div>
+<div id="散点图" class="section level3 hasAnchor" number="4.2.5">
+<h3><span class="header-section-number">4.2.5</span> 散点图<a href="r-基础操作.html#散点图" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>散点图通常用于表示两个变量之间的关系；</p>
+<p>图中每一个点的横纵坐标都分别对应两个变量各自的观测值，因此散点所反映出来的趋势也就是两个变量之间的关系；</p>
+<p>R中散点图的函数为<code>plot.default()</code>但由于<code>plot()</code>是泛形，通常只需要提供两个数值型向量给<code>plot()</code>即可；</p>
+</div>
+<div id="关联图" class="section level3 hasAnchor" number="4.2.6">
+<h3><span class="header-section-number">4.2.6</span> 关联图<a href="r-基础操作.html#关联图" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>关联图是展示二维列联表数据的一种工具，主要基于列联表的独立性检验理论生成的图形；</p>
+<p>对于一个<span class="math inline">\(r\times c\)</span>列联表，<span class="math display">\[ \chi^{2} \]</span>统计量的定义为如下平方和形式：</p>
+<p><img src="https://cheinchi.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-06-14%2015.01.44.png" alt="截屏2022-06-14 15.01.44" style="zoom:50%;" /></p>
+<p>其中，<span class="math inline">\(f_{ij}\)</span>为单元格中观测频数，<span class="math inline">\(e_{ij}\)</span>为期望频数；两者相差越大，则会导致检验统计量的值越大，说明行变量和列变量越不独立；</p>
+<p>R中关联图的函数<code>assocplot()</code></p>
+<pre><code>assocplot(x, col = c(&quot;black&quot;, &quot;red&quot;), space = 0.3, main = NULL, xlab = NULL,
+   ylab = NULL)</code></pre>
+</div>
+<div id="条件密度图" class="section level3 hasAnchor" number="4.2.7">
+<h3><span class="header-section-number">4.2.7</span> 条件密度图<a href="r-基础操作.html#条件密度图" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>条件密度图：展示的是一个变量的条件密度，或一个分类变量<span class="math inline">\(Y\)</span>相对于一个连续变量<span class="math inline">\(X\)</span>的条件密度<span class="math inline">\(P(Y|X)\)</span>；</p>
+<pre><code>## ## Default S3 method:
+cdplot(x, y, plot = TRUE, tol.ylab = 0.05, ylevels = NULL, bw = &quot;nrd0&quot;,
+n = 512, from = NULL, to = NULL, col = NULL, border = 1, main = &quot;&quot;,
+xlab = NULL, ylab = NULL, yaxlabels = NULL, xlim = NULL, ylim = c(0, 1), ...)</code></pre>
+<pre><code>par(mar = rep(0, 4)) # 继续前面的例子
+persp(est$x1, est$x2, est$fhat, shade = 0.75, border = NA, 
+      col = &quot;lightblue&quot;, phi = 20, theta = 15, box = FALSE)</code></pre>
+<p><img src="https://cheinchi.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-06-14%2015.20.54.png" alt="截屏2022-06-14 15.20.54" style="zoom:50%;" /></p>
+</div>
+<div id="条件分割图" class="section level3 hasAnchor" number="4.2.8">
+<h3><span class="header-section-number">4.2.8</span> 条件分割图<a href="r-基础操作.html#条件分割图" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>给定某一个或几个变量之后看所关心的变量的分布情况，分布主要指两个变量之间的关系，通常以散点图的形式展开：</p>
+<p>分割图的函数： <code>coplot()</code></p>
+</div>
+<div id="坐标轴须" class="section level3 hasAnchor" number="4.2.9">
+<h3><span class="header-section-number">4.2.9</span> 坐标轴须<a href="r-基础操作.html#坐标轴须" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="矩阵计算" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> 矩阵计算<a href="r-基础操作.html#矩阵计算" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="求特征向量" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> 求特征向量<a href="r-基础操作.html#求特征向量" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>eigen(A)</code></p>
+</div>
+<div id="伴随矩阵计算" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> 伴随矩阵计算<a href="r-基础操作.html#伴随矩阵计算" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="r-基础操作.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(A)<span class="sc">*</span><span class="fu">solve</span>(A)</span></code></pre></div>
+</div>
+<div id="矩阵求秩" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> 矩阵求秩<a href="r-基础操作.html#矩阵求秩" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="r-基础操作.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qr</span>(A)<span class="sc">$</span>rank <span class="co"># or qr.default(A)$rank</span></span></code></pre></div>
+</div>
+<div id="矩阵求迹" class="section level3 hasAnchor" number="4.3.4">
+<h3><span class="header-section-number">4.3.4</span> 矩阵求迹<a href="r-基础操作.html#矩阵求迹" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>sum(diag(A))</code></p>
+</div>
+<div id="矩阵求幂" class="section level3 hasAnchor" number="4.3.5">
+<h3><span class="header-section-number">4.3.5</span> 矩阵求幂<a href="r-基础操作.html#矩阵求幂" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="r-基础操作.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">^</span>A</span>
+<span id="cb133-2"><a href="r-基础操作.html#cb133-2" aria-hidden="true" tabindex="-1"></a><span class="fu">expm</span>(A)</span></code></pre></div>
+</div>
+<div id="单位矩阵" class="section level3 hasAnchor" number="4.3.6">
+<h3><span class="header-section-number">4.3.6</span> 单位矩阵<a href="r-基础操作.html#单位矩阵" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="r-基础操作.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(<span class="fu">rep</span>(<span class="dv">3</span>))</span>
+<span id="cb134-2"><a href="r-基础操作.html#cb134-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">3</span>) <span class="sc">%o%</span> <span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">3</span>)</span></code></pre></div>
+</div>
+<div id="对角矩阵" class="section level3 hasAnchor" number="4.3.7">
+<h3><span class="header-section-number">4.3.7</span> 对角矩阵<a href="r-基础操作.html#对角矩阵" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="r-基础操作.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(A)</span>
+<span id="cb135-2"><a href="r-基础操作.html#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(<span class="fu">diag</span>(A))</span></code></pre></div>
+<p><code>colsums</code>计算矩阵的列和，返回值为列的和，与所取矩阵及其范围相关</p>
+<p><code>rowsums</code>计算的是矩阵的各行的和；</p>
+<p><code>colMeans(A)</code>求各行的均值</p>
+<hr />
+<p>求和：</p>
+<p><code>rowSums()</code># 对于多列的进行求和；</p>
+<p><code>sum()</code></p>
+<hr />
+</div>
+</div>
+<div id="markdown-输出表格" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> markdown 输出表格<a href="r-基础操作.html#markdown-输出表格" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="r-基础操作.html#cb136-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>; y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span>; lmr <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span>
+<span id="cb136-2"><a href="r-基础操作.html#cb136-2" aria-hidden="true" tabindex="-1"></a>co <span class="ot">&lt;-</span> <span class="fu">summary</span>(lmr)<span class="sc">$</span>coefficients</span>
+<span id="cb136-3"><a href="r-基础操作.html#cb136-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(co)</span></code></pre></div>
+<p><code>knitr::kable(co)</code>来表示表格</p>
+<p><code>tidy=TRUE</code>重排代码块——更好看</p>
+<p><code>cache=TRUE</code>缓存上次运行的结果</p>
+<div id="章节目录" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> 章节目录<a href="r-基础操作.html#章节目录" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="r-基础操作.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="do">### 第三章第一节标题 {#c3-s1-int}</span></span></code></pre></div>
+<p>还有一种可以不显示到或不link到目录的：</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="r-基础操作.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 摘要 {.unnumbered #abstract}</span></span></code></pre></div>
+</div>
+<div id="rmarkdown主题设置" class="section level3 hasAnchor" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> rmarkdown主题设置<a href="r-基础操作.html#rmarkdown主题设置" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>template包内部有不同的方法来实现；</p>
+</div>
+<div id="yaml元数据" class="section level3 hasAnchor" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> YAML元数据<a href="r-基础操作.html#yaml元数据" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>可以在Rstudio中编辑markdown文件与</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="r-基础操作.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb139-2"><a href="r-基础操作.html#cb139-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;临时测试&quot;</span></span>
+<span id="cb139-3"><a href="r-基础操作.html#cb139-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">&quot;黄建祺&quot;</span></span>
+<span id="cb139-4"><a href="r-基础操作.html#cb139-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">&quot;2016年7月6日&quot;</span></span>
+<span id="cb139-5"><a href="r-基础操作.html#cb139-5" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<p>冒号<code>:</code>在属性设置中有特殊意义， 属性设置值如果含有冒号， 需要把整个属性值两边用单撇号界定。</p>
+</div>
+<div id="data.frame转换为列表的形式" class="section level3 hasAnchor" number="4.4.4">
+<h3><span class="header-section-number">4.4.4</span> data.frame转换为列表的形式<a href="r-基础操作.html#data.frame转换为列表的形式" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="r-基础操作.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(pacman)</span>
+<span id="cb140-2"><a href="r-基础操作.html#cb140-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">p_load</span>(tidyverse)</span>
+<span id="cb140-3"><a href="r-基础操作.html#cb140-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;./data_set/store-reliab-data.csv&quot;</span>, <span class="at">header =</span> T) <span class="sc">%&gt;%</span> as_tibble</span>
+<span id="cb140-4"><a href="r-基础操作.html#cb140-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">str</span>(df)</span></code></pre></div>
+</div>
+</div>
+<div id="制作幻灯片" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> 制作幻灯片<a href="r-基础操作.html#制作幻灯片" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Rmd文件选用输出格式<code>slidy_presentation</code>可以生成网页格式的幻灯片， 并具有缩放字体大小、显示幻灯片目录等功能。 只要在.Rmd文件开头的YAML元数据部分指定<code>output: slidy_presentation</code>。 因为幻灯片的单位是帧(frame)， 与论文的结构有很大区别， 所以幻灯片Rmd文件很难同时作为论文的源文件。</p>
+<div id="生成网页html-形式" class="section level3 hasAnchor" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> 生成网页html 形式<a href="r-基础操作.html#生成网页html-形式" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="r-基础操作.html#cb141-1" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="st">&quot;mydemo.Rmd&quot;</span>, <span class="at">output_file=</span><span class="st">&quot;handout.html&quot;</span>, <span class="at">output_format=</span><span class="st">&quot;html_document&quot;</span>, <span class="at">encoding=</span><span class="st">&quot;UTF-8&quot;</span>)</span></code></pre></div>
+</div>
+<div id="在yaml中的设置" class="section level3 hasAnchor" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> 在Yaml中的设置：<a href="r-基础操作.html#在yaml中的设置" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>使得数学公式在local mathjax库打开：</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="r-基础操作.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb142-2"><a href="r-基础操作.html#cb142-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;R幻灯片演示样例&quot;</span></span>
+<span id="cb142-3"><a href="r-基础操作.html#cb142-3" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> </span>
+<span id="cb142-4"><a href="r-基础操作.html#cb142-4" aria-hidden="true" tabindex="-1"></a>  slidy_presentation<span class="sc">:</span></span>
+<span id="cb142-5"><a href="r-基础操作.html#cb142-5" aria-hidden="true" tabindex="-1"></a>    mathjax<span class="sc">:</span> local</span>
+<span id="cb142-6"><a href="r-基础操作.html#cb142-6" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<div id="output-layout-ms-ppt" class="section level4 hasAnchor" number="4.5.2.1">
+<h4><span class="header-section-number">4.5.2.1</span> output layout MS ppt<a href="r-基础操作.html#output-layout-ms-ppt" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb143"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb143-1"><a href="r-基础操作.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb143-2"><a href="r-基础操作.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb143-3"><a href="r-基础操作.html#cb143-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">powerpoint_presentation</span><span class="kw">:</span></span>
+<span id="cb143-4"><a href="r-基础操作.html#cb143-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">slide_level</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb143-5"><a href="r-基础操作.html#cb143-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<p>其中<code>slide_level</code>用来规定几级标题开始新的一帧。 <code>theme</code>指定一种主题， <code>colortheme</code>指定一种配色方案， <code>in_header</code>在LaTeX导言部分插入<code>preamble.tex</code></p>
+</div>
+</div>
+<div id="xaringan包的使用" class="section level3 hasAnchor" number="4.5.3">
+<h3><span class="header-section-number">4.5.3</span> <strong>Xaringan</strong>包的使用<a href="r-基础操作.html#xaringan包的使用" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>①用markdown语法：三个短横线来开始一页新的幻灯片，可以用一个井号开始写标题（标题不是必须元素）；</p>
+<p>②可以用两个短横线分割当前页面，两短横线下面的内容会被接续上面的内容生成在下一页上，比如你有一个三个项目的列表，中间用两短横线分割，最后出来的效果就是先显示第一项，翻下一页继续显示下一项；</p>
+<p>③用三个问号添加slide的注释，注释只显示给pre者</p>
+<p>进一步了解所有可能的选项，<code>?xaringan::moon_reader</code></p>
+<p><strong>打开Rprofile的方式：</strong></p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="r-基础操作.html#cb144-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">edit_r_profile</span>()</span></code></pre></div>
+<p>对于<code>options(servr.daemon = TRUE)</code>要记得写入<code>~./Rprofile</code></p>
+<p>ppt属性设置</p>
+<ul>
+<li>class</li>
+</ul>
+<p>类属性用来设置CSS类，可用于调整ppt内文字的位置</p>
+<ul>
+<li>background-image</li>
+</ul>
+<p>背景设置</p>
+<ul>
+<li><p>插入数学公式</p></li>
+<li><p>插入R代码</p></li>
+</ul>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="r-基础操作.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 一个无聊的回归模型</span></span>
+<span id="cb145-2"><a href="r-基础操作.html#cb145-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">=</span> <span class="fu">lm</span>(dist<span class="sc">~</span>l<span class="sc">+</span>speed,<span class="at">data=</span>cars)</span>
+<span id="cb145-3"><a href="r-基础操作.html#cb145-3" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(fit))</span>
+<span id="cb145-4"><a href="r-基础操作.html#cb145-4" aria-hidden="true" tabindex="-1"></a>dojutsu <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;di&#39;</span>,<span class="st">&#39;tian&#39;</span>,<span class="st">&#39;tu&#39;</span>,<span class="st">&#39;shen&#39;</span>,<span class="st">&#39;zuo&#39;</span>)</span>
+<span id="cb145-5"><a href="r-基础操作.html#cb145-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&#39;tian&#39;</span>,dojutsu,<span class="at">value=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<ul>
+<li>插入R图形</li>
+</ul>
+<p>用plot函数等方式来实现；</p>
+</div>
+</div>
+<div id="ggplot绘图" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> ggplot绘图<a href="r-基础操作.html#ggplot绘图" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="final-plot" class="section level3 hasAnchor" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> final plot<a href="r-基础操作.html#final-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="r-基础操作.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">5</span>))</span>
+<span id="cb146-2"><a href="r-基础操作.html#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(beaver1[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">3</span>], <span class="at">type =</span><span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;beaver1 temperature&quot;</span>,</span>
+<span id="cb146-3"><a href="r-基础操作.html#cb146-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Beaver Temperature Plot&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>,</span>
+<span id="cb146-4"><a href="r-基础操作.html#cb146-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb146-5"><a href="r-基础操作.html#cb146-5" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb146-6"><a href="r-基础操作.html#cb146-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(beaver2[,<span class="dv">3</span>], <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">yaxt =</span> <span class="st">&quot;n&quot;</span>,</span>
+<span id="cb146-7"><a href="r-基础操作.html#cb146-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb146-8"><a href="r-基础操作.html#cb146-8" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">4</span>)</span>
+<span id="cb146-9"><a href="r-基础操作.html#cb146-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="st">&quot;beaver2 temperature&quot;</span>, <span class="at">side =</span> <span class="dv">4</span>, <span class="at">line =</span> <span class="dv">3</span>)</span>
+<span id="cb146-10"><a href="r-基础操作.html#cb146-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-11"><a href="r-基础操作.html#cb146-11" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;beaver1&quot;</span>, <span class="st">&quot;beaver2&quot;</span>),</span>
+<span id="cb146-12"><a href="r-基础操作.html#cb146-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p><strong>5、其他</strong></p>
+<ul>
+<li><p>tick取FALSE时，坐标轴线和刻度线不画出；</p></li>
+<li><p>lty表示线型，用在axis函数中表示坐标轴线型；</p></li>
+<li><p>lwd表示线的粗细，用在axis函数中表示坐标轴线粗细；</p></li>
+<li><p>lwd.ticks表示刻度线粗细。</p></li>
+</ul>
+<p><strong>at表示坐标轴刻度的位置</strong>，可以自己指定，比如at=c(1,2,3,4,5,5.5,5.6,6,7)</p>
+<p><strong>labels表示与坐标轴刻度相对应的坐标轴标记</strong>，如labels=c(1,2,3,4,5,5.5,5.6,6,7)。如果要改变坐标轴，首先在画图的时候不需要把坐标轴画出来，然后再用axis加上去。如下：
+plot(x,y,xaxt=“n”)
+axis(side=1,at=c(….),labels=c(…))<br />
+下面是axis（）的完整参数列表，各个参数的详细含义见R。</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="r-基础操作.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(side, <span class="at">at =</span> <span class="cn">NULL</span>, <span class="at">labels =</span> <span class="cn">TRUE</span>, <span class="at">tick =</span> <span class="cn">TRUE</span>, <span class="at">line =</span> <span class="cn">NA</span>,</span>
+<span id="cb147-2"><a href="r-基础操作.html#cb147-2" aria-hidden="true" tabindex="-1"></a><span class="at">pos =</span> <span class="cn">NA</span>, <span class="at">outer =</span> <span class="cn">FALSE</span>, <span class="at">font =</span> <span class="cn">NA</span>, <span class="at">lty =</span> <span class="st">&quot;solid&quot;</span>,</span>
+<span id="cb147-3"><a href="r-基础操作.html#cb147-3" aria-hidden="true" tabindex="-1"></a><span class="at">lwd =</span> <span class="dv">1</span>, <span class="at">lwd.ticks =</span> lwd, <span class="at">col =</span> <span class="cn">NULL</span>, <span class="at">col.ticks =</span> <span class="cn">NULL</span>,</span>
+<span id="cb147-4"><a href="r-基础操作.html#cb147-4" aria-hidden="true" tabindex="-1"></a><span class="at">hadj =</span> <span class="cn">NA</span>, <span class="at">padj =</span> <span class="cn">NA</span>, ...)</span></code></pre></div>
+<table>
+<colgroup>
+<col width="9%" />
+<col width="90%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">side</td>
+<td>一个整数，表示在图形的哪边绘制坐标轴（1=下，2=左，3=上，4=右）</td>
+</tr>
+<tr class="even">
+<td align="left">at</td>
+<td>一个数值型向量，表示需要绘制刻度线的位置</td>
+</tr>
+<tr class="odd">
+<td align="left">labels</td>
+<td>一个字符型向量，表示置于刻度线旁边的文字标签（如果为 NULL，则将直接使用 at 中的值</td>
+</tr>
+<tr class="even">
+<td align="left">tick</td>
+<td>一个逻辑值，指定是否应绘制刻度线和轴线</td>
+</tr>
+<tr class="odd">
+<td align="left">line</td>
+<td>到轴线的行数距离</td>
+</tr>
+<tr class="even">
+<td align="left">pos</td>
+<td>坐标轴线绘制位置的坐标（即与另一条坐标轴相交位置的值）</td>
+</tr>
+<tr class="odd">
+<td align="left">outer</td>
+<td>一个逻辑值，指示是否应在外部绘图边距而非标准绘图边距中绘制轴</td>
+</tr>
+<tr class="even">
+<td align="left">font</td>
+<td>文字的字体</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="ploty绘图" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> ploty绘图<a href="r-基础操作.html#ploty绘图" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>ploty绘图是可互动的；</p>
+<ul>
+<li>基本绘图命令：<code>plot_ly(data, x, y, z, type, mode...)</code></li>
+</ul>
+<p>其中:</p>
+<blockquote>
+<p>x：x轴数据</p>
+<p>y ：y轴数据</p>
+<p>z： z轴数据</p>
+<p>text： 文本内容——在每一个点中的具体内容中进行显示</p>
+<p>name： 名称，图注中使用</p>
+<p>alpha：透明度</p>
+<p>size： 点的大小</p>
+<p>linetype： 线的类型</p>
+<p>color：图形颜色</p>
+<p>symbol：指定形状</p>
+<p>stroke：边框颜色</p>
+<p>showlegend： bool value</p>
+</blockquote>
+<div id="散点图-1" class="section level3 hasAnchor" number="4.7.1">
+<h3><span class="header-section-number">4.7.1</span> 散点图<a href="r-基础操作.html#散点图-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>指定参数<code>add_trace(…,type=“scatter”,mode=“”)</code></li>
+</ul>
+<p><code>%&gt;%</code>等同于ggplot中的<code>+</code></p>
+<p>进一步进行拓展：将<code>mode</code>改为lines或其他的模式；同时还可以<code>mode</code> 内将多个模式联合使用；</p>
+<p><strong>气泡图</strong>：就是将点的大小和颜色与其他特征联系起来（bubble）——选择<code>type</code>时候仍然是选择`<code>scatter</code></p>
+<p><strong>哑铃图, 将起始点与终止点用segment连接起来 (Dumbbell)</strong></p>
+<ul>
+<li>包含的trace: <code>marker</code>, <code>line</code></li>
+</ul>
+</div>
+<div id="柱类型柱状图堆积图直方图瀑布图" class="section level3 hasAnchor" number="4.7.2">
+<h3><span class="header-section-number">4.7.2</span> 柱类型（柱状图、堆积图、直方图、瀑布图……）<a href="r-基础操作.html#柱类型柱状图堆积图直方图瀑布图" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="柱状图bar-charts" class="section level4 hasAnchor" number="4.7.2.1">
+<h4><span class="header-section-number">4.7.2.1</span> 柱状图(Bar Charts)<a href="r-基础操作.html#柱状图bar-charts" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>指定参数<code>add_trace(...,type="bar")</code>（等同于<code>add_bars</code>）</li>
+<li>要么用通用的add_trace&amp;type=“ ”，要么使用add_bars</li>
+</ul>
+<p><code>marker</code>传入列表包括柱子的特征，line指定边框颜色粗细，color柱子颜色，opacity指定柱子的透明度；</p>
+<ul>
+<li><code>layout</code>对于柱状图的设置
+<ul>
+<li><code>barmode</code>: 设置直方图的展示形式, 可选参数: “stack” (堆叠展示) | “group” (分组展示) | “overlay” (覆盖展示) | “relative” (相对高度) (Default: “group”)
+<code>bargap</code>: 每个柱子的间隔
+<code>barnorm</code>: bar的标准化形式, 可选参数: “” | “fraction” (分数) | “percent” (百分数) (Default: ““)
+<code>bargap</code>: 设置相邻位置坐标 (不同特征) bar之间的间距 (0 ~ 1的区间)
+<code>bargroupgap</code>: 设置相同坐标 (相同特征) bar之间的间距 (0 ~ 1的区间) (Default: 0)</li>
+</ul></li>
+</ul>
+<p><strong>直方图 (Histgram)</strong></p>
+<ul>
+<li>指定参数<code>add_trace(...,type="historm")</code></li>
+</ul>
+<p><code>opacity</code>: 柱子的透明度, 0 ~ 1的区间 (Default: 1)</p>
+<p><code>histfunc</code>: 每一个柱子的统计指标: “count” (默认) | “sum” | “avg” | “min” | “max”</p>
+<p><code>histnorm</code>: 指定用于此直方图规格化类型: “” (默认) | “percent” | “probability” | “density” | “probability density”</p>
+<p><code>marker</code>: 传入列表参数, 指定直方图中柱子的特征</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="r-基础操作.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb148-2"><a href="r-基础操作.html#cb148-2" aria-hidden="true" tabindex="-1"></a>ay <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb148-3"><a href="r-基础操作.html#cb148-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">tickfont =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">&quot;red&quot;</span>),</span>
+<span id="cb148-4"><a href="r-基础操作.html#cb148-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">overlaying =</span> <span class="st">&quot;y&quot;</span>,</span>
+<span id="cb148-5"><a href="r-基础操作.html#cb148-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">side =</span> <span class="st">&quot;right&quot;</span>,</span>
+<span id="cb148-6"><a href="r-基础操作.html#cb148-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;second y axis&quot;</span>)</span>
+<span id="cb148-7"><a href="r-基础操作.html#cb148-7" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> <span class="fu">plot_ly</span>()</span>
+<span id="cb148-8"><a href="r-基础操作.html#cb148-8" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> fig <span class="sc">%&gt;%</span> <span class="fu">add_lines</span>(<span class="at">x =</span> <span class="sc">~</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="sc">~</span><span class="dv">10</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>), <span class="at">name =</span> <span class="st">&quot;slope of 10&quot;</span>)</span>
+<span id="cb148-9"><a href="r-基础操作.html#cb148-9" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> fig <span class="sc">%&gt;%</span> <span class="fu">add_lines</span>(<span class="at">x =</span> <span class="sc">~</span><span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="sc">~</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">name =</span> <span class="st">&quot;slope of 1&quot;</span>, <span class="at">yaxis =</span> <span class="st">&quot;y2&quot;</span>)</span>
+<span id="cb148-10"><a href="r-基础操作.html#cb148-10" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> fig <span class="sc">%&gt;%</span> <span class="fu">layout</span>(</span>
+<span id="cb148-11"><a href="r-基础操作.html#cb148-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Double Y Axis&quot;</span>, <span class="at">yaxis2 =</span> ay,<span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title=</span><span class="st">&quot;x&quot;</span>))</span>
+<span id="cb148-12"><a href="r-基础操作.html#cb148-12" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="数据整理" class="section level2 hasAnchor" number="4.8">
+<h2><span class="header-section-number">4.8</span> 数据整理<a href="r-基础操作.html#数据整理" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="数据结构" class="section level3 hasAnchor" number="4.8.1">
+<h3><span class="header-section-number">4.8.1</span> 数据结构<a href="r-基础操作.html#数据结构" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>数组元素的排列次序缺省情况下是采用第一下标变化最快，最后下标变化最慢的顺序存放的；对于矩阵（二维数组）则是按列存放。例如，假设数组a的元素为1:24，维数向量为c(2,3,4)，则各元素次序为a[1,1,1], a[2,1,1], a[1,2,1], a[2,2,1], a[1,3,1], …, a[2,3,4]。</p></li>
+<li><p>数组的访问</p></li>
+</ul>
+<p>矩阵的生成与存储</p>
+<p><code>matrix(data=NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)</code> 生成一堆NA（表示无数据的）来进行生成矩阵</p>
+<p><code>cbind</code>：根据列进行合并，</p>
+<p><code>rbind</code>：根据矩阵的行进行合并</p>
+</div>
+<div id="tibble数据结构记得进一步补充" class="section level3 hasAnchor" number="4.8.2">
+<h3><span class="header-section-number">4.8.2</span> tibble数据结构(记得进一步补充)<a href="r-基础操作.html#tibble数据结构记得进一步补充" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>一种改进的数据框</p>
+<ul>
+<li>用<code>as_tibble()</code>可以将一个数据框转换为tibble, dplyr包提供</li>
+</ul>
+<p>列表类型的列：</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="r-基础操作.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
+<span id="cb149-2"><a href="r-基础操作.html#cb149-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>))</span></code></pre></div>
+<p>在不写全工作路径情况下，默认为当前的工作路径下读取数据。</p>
+<hr />
+<ul>
+<li><p>每一个对象都有属性：元信息描述对象的特性。属性能通过attributes()函数罗列出来并能通过attr()函数进行设置。</p></li>
+<li><p>R函数使用关于对象类的信息来确定如何处理对象。<strong>可以使用class()函数来读取和设置对象的类。</strong>
+<code>x &lt;- c(apple=2.5,orange=2.1)</code>
+<code>attributes(x)</code><strong>#返回对象x的各特殊属性组成的列表，不包括固有属性mode和length</strong>
+<code>mode(x)</code>
+<code>length(x)</code></p></li>
+<li><p><strong>可以用attr(object,name)的形式存取对象object的名为name的属性。</strong>如：
+attr(x,“names”)</p></li>
+<li><p><strong>也可以把attr()函数写在赋值的左边以改变属性值或定义新的属性，</strong>如:
+attr(x,“names”) &lt;- c(“apple”,“grapes”)</p></li>
+<li><p><code>eval(expr)</code></p></li>
+<li><p><code>ls()</code> 来查看工作空间；</p></li>
+<li><p><code>rm</code>删除工作空间的变量；</p></li>
+<li><p>数据集经常需要选行<strong>子集、选列子集、排序、定义新变量、横向合并、长宽转换等操作</strong>， R的管道运算符<code>|&gt;</code>和<strong>magrittr</strong>包的<code>|&gt;</code>特别适用于这种分步处理。</p></li>
+</ul>
+<div id="utilas-包内的head-选择前几个数据的方式来过滤" class="section level4 hasAnchor" number="4.8.2.1">
+<h4><span class="header-section-number">4.8.2.1</span> Utilas 包内的head 选择前几个数据的方式来过滤：<a href="r-基础操作.html#utilas-包内的head-选择前几个数据的方式来过滤" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="r-基础操作.html#cb150-1" aria-hidden="true" tabindex="-1"></a>d.class <span class="sc">|&gt;</span>  <span class="co">#使用管道来进行传输过滤</span></span>
+<span id="cb150-2"><a href="r-基础操作.html#cb150-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n=</span><span class="dv">5</span>) <span class="sc">|&gt;</span></span>
+<span id="cb150-3"><a href="r-基础操作.html#cb150-3" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+</div>
+</div>
+<div id="sample_n对样本进行抽样" class="section level3 hasAnchor" number="4.8.3">
+<h3><span class="header-section-number">4.8.3</span> sample_n对样本进行抽样<a href="r-基础操作.html#sample_n对样本进行抽样" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="r-基础操作.html#cb151-1" aria-hidden="true" tabindex="-1"></a>d.class <span class="sc">|&gt;</span></span>
+<span id="cb151-2"><a href="r-基础操作.html#cb151-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
+<span id="cb151-3"><a href="r-基础操作.html#cb151-3" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+</div>
+<div id="使用arrange进行排序" class="section level3 hasAnchor" number="4.8.4">
+<h3><span class="header-section-number">4.8.4</span> 使用arrange进行排序<a href="r-基础操作.html#使用arrange进行排序" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="r-基础操作.html#cb152-1" aria-hidden="true" tabindex="-1"></a>d.class <span class="sc">|&gt;</span></span>
+<span id="cb152-2"><a href="r-基础操作.html#cb152-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(sex, age) <span class="sc">|&gt;</span></span>
+<span id="cb152-3"><a href="r-基础操作.html#cb152-3" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+<ul>
+<li>类似于stata 可以将变量重命名</li>
+</ul>
+</div>
+<div id="利用mutate进行重新计算" class="section level3 hasAnchor" number="4.8.5">
+<h3><span class="header-section-number">4.8.5</span> 利用mutate进行重新计算<a href="r-基础操作.html#利用mutate进行重新计算" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="r-基础操作.html#cb153-1" aria-hidden="true" tabindex="-1"></a>d.class <span class="sc">|&gt;</span></span>
+<span id="cb153-2"><a href="r-基础操作.html#cb153-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb153-3"><a href="r-基础操作.html#cb153-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">rwh=</span>weight<span class="sc">/</span>height, </span>
+<span id="cb153-4"><a href="r-基础操作.html#cb153-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">sexc=</span><span class="fu">ifelse</span>(sex<span class="sc">==</span><span class="st">&quot;F&quot;</span>, <span class="st">&quot;女&quot;</span>, <span class="st">&quot;男&quot;</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb153-5"><a href="r-基础操作.html#cb153-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n=</span><span class="dv">3</span>) <span class="sc">|&gt;</span></span>
+<span id="cb153-6"><a href="r-基础操作.html#cb153-6" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+</div>
+</div>
+<div id="dataframe的操作" class="section level2 hasAnchor" number="4.9">
+<h2><span class="header-section-number">4.9</span> dataframe的操作<a href="r-基础操作.html#dataframe的操作" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>创建较为简易：直接调用data.frame函数就行</p>
+<div id="查询" class="section level3 hasAnchor" number="4.9.1">
+<h3><span class="header-section-number">4.9.1</span> 查询<a href="r-基础操作.html#查询" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>查询某一行或某一列</li>
+</ol>
+<p>可通过<code>dataframe_name[row，]</code>或<code>dataframe_name[,column]</code></p>
+<p>还可通过<code>dataframe_name$column_name</code>实现</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>若要查找符合条件的行，可采用<code>which()</code>函数，得到的类型为数据框；</p></li>
+<li><p>查询某一个值，可通过<code>data.frame[row,column]</code>实现</p></li>
+<li><p>which函数同样可以实现查找符合条件的值</p></li>
+</ol>
+</div>
+<div id="修改" class="section level3 hasAnchor" number="4.9.2">
+<h3><span class="header-section-number">4.9.2</span> 修改<a href="r-基础操作.html#修改" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>直接导入向量数据</li>
+</ol>
+<p><code>df[1,] &lt;- c(1,2,3…,)</code></p>
+<ol start="2" style="list-style-type: decimal">
+<li>修改某一个值，直接调出精确位置<code>df[row,column]</code>再进行赋值；</li>
+<li>修改行列名</li>
+</ol>
+</div>
+<div id="删除" class="section level3 hasAnchor" number="4.9.3">
+<h3><span class="header-section-number">4.9.3</span> 删除<a href="r-基础操作.html#删除" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>删除行或列，仅需要选出该数据框的部分行或列，然后再将其赋给该变量即可，其中在列好或行号前添加。</p>
+</div>
+<div id="添加" class="section level3 hasAnchor" number="4.9.4">
+<h3><span class="header-section-number">4.9.4</span> 添加<a href="r-基础操作.html#添加" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>添加行</li>
+</ol>
+<p><code>data.frame[new_row, ]&lt;- value</code></p>
+<p>还可以使用dplyr包内的<code>mutate()</code></p>
+<p><code>mutate(df,c=m+n+…+z)</code></p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>group_by()函数，用于对不同的分组进行操作</p>
+<p><code>%&gt;%</code>管道函数，将左侧的值传送给右边的表达式中，作为右侧的第一个函数的第一个参数；</p>
+<p><code>Summarize()</code>概括dataframe的情况</p></li>
+<li><p>filter：过滤数据的基本操作</p></li>
+</ol>
+<blockquote>
+<p>如果想删除一部分无效或者根本不感兴趣的数据。 dplyr有filter（）函数来做这样的过滤。 使用dplyr，可以帮助使用者像使用SQL或者传统BI工具以简单且更直观的方式进行过滤。</p>
+</blockquote>
+<pre><code> d.class |&gt;
+   filter(sex==&quot;F&quot;, age&lt;=13) |&gt;
+   knitr::kable()    </code></pre>
+<p>同时还可以将这些数据传递给knitr ::kable() 生成数据框</p>
+<p>同时也可以直接命名一个变量传递给变量</p>
+<ol start="5" style="list-style-type: decimal">
+<li>select() 可以用于生成一个新的数据框</li>
+</ol>
+<p><strong>可直接新生成变量</strong>，<strong>然后再筛选数据</strong>：</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="r-基础操作.html#cb155-1" aria-hidden="true" tabindex="-1"></a>data2<span class="sc">$</span>Gender[<span class="fu">which</span>(data2<span class="sc">$</span>Gender <span class="sc">==</span><span class="st">&#39;F&#39;</span>)] <span class="ot">&lt;-</span> <span class="st">&#39;W&#39;</span></span></code></pre></div>
+</div>
+<div id="tidyverse系统" class="section level3 hasAnchor" number="4.9.5">
+<h3><span class="header-section-number">4.9.5</span> tidyverse系统<a href="r-基础操作.html#tidyverse系统" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>purrr包可以方便列表操作</p>
+<ul>
+<li>Pluck() :同[[提取列表中的元素</li>
+<li>keep()： 保留满足条件元素</li>
+<li>discard(): 删除满足条件元素</li>
+<li>compact(): 删除空元素</li>
+<li>append(): 列表末尾增加元素</li>
+<li>flatten():</li>
+</ul>
+<p><strong>数据框是由列向量组成</strong>，<strong>有着矩阵形式的列表</strong>；</p>
+<p>数据框每一列代表一个变量属性，一行一个样本数据；</p>
+<p>tibble()不改变输入变量的类型，不创建行名；</p>
+<ul>
+<li>tibble输出时候不自动显示所有行，避免大数据框时显示很多内容</li>
+<li>[]选取子集，返回的仍然是tibble;</li>
+</ul>
+<div id="提取数据框的元素子集" class="section level4 hasAnchor" number="4.9.5.1">
+<h4><span class="header-section-number">4.9.5.1</span> 提取数据框的元素、子集<a href="r-基础操作.html#提取数据框的元素子集" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>列向量，有矩阵形式的列表</p>
+<ol style="list-style-type: decimal">
+<li><p>列表方式提取数据框的元素、子集——沿用dataframe的方法基础上还可以用列表的方法</p></li>
+<li><p>用[]提取数据框的一列或多列，</p></li>
+</ol>
+</div>
+<div id="给数据框赋值" class="section level4 hasAnchor" number="4.9.5.2">
+<h4><span class="header-section-number">4.9.5.2</span> 给数据框赋值<a href="r-基础操作.html#给数据框赋值" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>以列表方式</p>
+<ul>
+<li><p>用<code>$</code> 或<code>[[]]</code>对数据框的一列赋值</p></li>
+<li><p>利用现有列，创建（计算）新列</p></li>
+<li><p>用<code>[]</code>对数据框的一列或多列进行赋值；</p></li>
+</ul>
+<p>以矩阵方式</p>
+<ul>
+<li><code>str()</code>或<code>glimpse()</code>作用在R对象上，显示该对象结构</li>
+<li><code>summary()</code>作用在数据框/列表上，生成各列/成分的汇总信息</li>
+<li>多个数据框 <code>rbind()</code> <code>cbind()</code></li>
+</ul>
+</div>
+</div>
+<div id="中文字体的使用" class="section level3 hasAnchor" number="4.9.6">
+<h3><span class="header-section-number">4.9.6</span> 中文字体的使用<a href="r-基础操作.html#中文字体的使用" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="r-基础操作.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(showtext)</span>
+<span id="cb156-2"><a href="r-基础操作.html#cb156-2" aria-hidden="true" tabindex="-1"></a><span class="fu">showtext.auto</span>(<span class="at">enable=</span><span class="cn">TRUE</span>)</span>
+<span id="cb156-3"><a href="r-基础操作.html#cb156-3" aria-hidden="true" tabindex="-1"></a><span class="fu">font.add</span>(<span class="st">&#39;SimSun&#39;</span>, <span class="at">regular =</span> <span class="st">&#39;/Library/Fonts/Microsoft/SimSun.ttf&#39;</span>)</span></code></pre></div>
+<p><code>json</code>是<code>javaScript object notation</code>简称，一种轻量化的数据表示方式，采用<code>key：value</code>的形式记录数据，直观，比<code>XML</code>简洁；</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb157-1"><a href="r-基础操作.html#cb157-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">request</span>&gt;</span>
+<span id="cb157-2"><a href="r-基础操作.html#cb157-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">firstName</span>&gt;Brett&lt;/<span class="kw">firstName</span>&gt;</span>
+<span id="cb157-3"><a href="r-基础操作.html#cb157-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">lastName</span>&gt;McLaughlin&lt;/<span class="kw">lastName</span>&gt;</span>
+<span id="cb157-4"><a href="r-基础操作.html#cb157-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">email</span>&gt;brett@newInstance.com&lt;/<span class="kw">email</span>&gt;</span>
+<span id="cb157-5"><a href="r-基础操作.html#cb157-5" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">request</span>&gt;</span></code></pre></div>
+<p><code>par</code>的使用：每一个图形都有自己的参数，就是在图形还没绘制完成前，打开一个新的绘图设备。</p>
+<p><a href="https://blog.csdn.net/heidlyn/article/details/54581605" class="uri">https://blog.csdn.net/heidlyn/article/details/54581605</a></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r数据类型.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cross.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/cheinchi/r-statistics/edit/BRANCH/03-base-plot.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
